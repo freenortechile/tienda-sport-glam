@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="es-CL">
 <head>
-<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tienda Sport Glam</title>
+<meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
+<title>Tienda Sport Glam</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Zapatillas originales Puma, Adidas, Nike, Skechers y más. Busca por tu talla, mira el stock de la tienda y pide por WhatsApp.">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1E1820" media="(prefers-color-scheme: dark)">
@@ -29,43 +30,508 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Inter:wght@400;500;600;700&display=swap">
+
 <style>
-/* Vitrina de marca: cabecera con logo, portada con zapatilla protagonista, barra de tallas fija, catálogo en grilla, ficha emergente con pedido por WhatsApp */
+/* Tienda Sport Glam v6 · tienda de zapatillas con portada en banners, mosaico de categorías, fotos recortadas, bolsa de pedido por WhatsApp */
 :root{
-  --fondo:#FBF8F9; --superficie:#FFFFFF; --tinta:#141017; --suave:#4D4552; --tenue:#6B6170;
-  --linea:#ECE6EC; --fucsia:#E0186C; --fucsia-texto:#B0105A; --rosa:#F8DDE7; --sobre-fucsia:#FFFFFF;
+  --fondo:#FAF7F8; --superficie:#FFFFFF; --tinta:#141017; --suave:#4D4552; --tenue:#6B6170;
+  --linea:#ECE6EC; --fucsia:#E0186C; --fucsia-texto:#B0105A; --rosa:#F8DDE7; --crema:#F3EEE6; --sobre-fucsia:#FFFFFF;
   --chip:#FFFFFF; --chip-borde:#D9CED6; --chip-on:#141017; --chip-on-texto:#FFFFFF; --agotado:#F3EEF1;
-  --foto:#FFFFFF; --sombra:0 18px 40px rgba(20,16,23,.12); --velo:rgba(20,16,23,.55); --logo-glam:#E0186C; --esqueleto:#F1EBEF; --anuncio-fondo:#141017; --anuncio-texto:#FFFFFF; --anuncio-icono:#FF4D93;
+  --foto-bg:#F2EEF1; --sombra:0 18px 40px rgba(20,16,23,.12); --sombra-chica:0 6px 18px rgba(20,16,23,.08); --velo:rgba(20,16,23,.55);
+  --logo-glam:#E0186C; --esqueleto:#EFE9ED; --anuncio-fondo:#141017; --anuncio-texto:#FFFFFF; --anuncio-icono:#FF4D93;
+  --zapa-sombra:drop-shadow(0 16px 12px rgba(20,16,23,.20)) drop-shadow(0 4px 4px rgba(20,16,23,.10));
   --display:"Archivo","Arial Narrow",system-ui,sans-serif; --texto:"Inter",system-ui,-apple-system,sans-serif;
-  --ancho:1240px; --ease:cubic-bezier(.2,.8,.2,1);
+  --ancho:1280px; --ease:cubic-bezier(.2,.8,.2,1); --cab:69px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --fondo:#141017; --superficie:#1E1820; --tinta:#FBF8F9; --suave:#D6CCD3; --tenue:#B9AEB6;
-  --linea:#2E2633; --fucsia:#E0186C; --fucsia-texto:#FF6FA6; --rosa:#3A1A2A; --sobre-fucsia:#FFFFFF;
-  --chip:#1E1820; --chip-borde:#3A3140; --chip-on:#E0186C; --chip-on-texto:#FFFFFF; --agotado:#241D27;
-  --foto:#FFFFFF; --sombra:0 18px 40px rgba(0,0,0,.45); --velo:rgba(0,0,0,.65); --logo-glam:#FF4D93; --esqueleto:#2A222E; --anuncio-fondo:#E0186C; --anuncio-texto:#FFFFFF; --anuncio-icono:#FFFFFF; color-scheme:dark}}
+  --fondo:#120E14; --superficie:#1C161F; --tinta:#FBF8F9; --suave:#D6CCD3; --tenue:#B9AEB6;
+  --linea:#2C2431; --fucsia:#E0186C; --fucsia-texto:#FF6FA6; --rosa:#3A1A2A; --crema:#2A2420; --sobre-fucsia:#FFFFFF;
+  --chip:#1C161F; --chip-borde:#3A3140; --chip-on:#E0186C; --chip-on-texto:#FFFFFF; --agotado:#241D27;
+  --foto-bg:#262028; --sombra:0 18px 40px rgba(0,0,0,.45); --sombra-chica:0 6px 18px rgba(0,0,0,.35); --velo:rgba(0,0,0,.65);
+  --logo-glam:#FF4D93; --esqueleto:#2A222E; --anuncio-fondo:#E0186C; --anuncio-texto:#FFFFFF; --anuncio-icono:#FFFFFF;
+  --zapa-sombra:drop-shadow(0 16px 12px rgba(0,0,0,.45)) drop-shadow(0 4px 4px rgba(0,0,0,.25)); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --fondo:#141017; --superficie:#1E1820; --tinta:#FBF8F9; --suave:#D6CCD3; --tenue:#B9AEB6;
-  --linea:#2E2633; --fucsia:#E0186C; --fucsia-texto:#FF6FA6; --rosa:#3A1A2A; --sobre-fucsia:#FFFFFF;
-  --chip:#1E1820; --chip-borde:#3A3140; --chip-on:#E0186C; --chip-on-texto:#FFFFFF; --agotado:#241D27;
-  --foto:#FFFFFF; --sombra:0 18px 40px rgba(0,0,0,.45); --velo:rgba(0,0,0,.65); --logo-glam:#FF4D93; --esqueleto:#2A222E; --anuncio-fondo:#E0186C; --anuncio-texto:#FFFFFF; --anuncio-icono:#FFFFFF; color-scheme:dark}
+  --fondo:#120E14; --superficie:#1C161F; --tinta:#FBF8F9; --suave:#D6CCD3; --tenue:#B9AEB6;
+  --linea:#2C2431; --fucsia:#E0186C; --fucsia-texto:#FF6FA6; --rosa:#3A1A2A; --crema:#2A2420; --sobre-fucsia:#FFFFFF;
+  --chip:#1C161F; --chip-borde:#3A3140; --chip-on:#E0186C; --chip-on-texto:#FFFFFF; --agotado:#241D27;
+  --foto-bg:#262028; --sombra:0 18px 40px rgba(0,0,0,.45); --sombra-chica:0 6px 18px rgba(0,0,0,.35); --velo:rgba(0,0,0,.65);
+  --logo-glam:#FF4D93; --esqueleto:#2A222E; --anuncio-fondo:#E0186C; --anuncio-texto:#FFFFFF; --anuncio-icono:#FFFFFF;
+  --zapa-sombra:drop-shadow(0 16px 12px rgba(0,0,0,.45)) drop-shadow(0 4px 4px rgba(0,0,0,.25)); color-scheme:dark}
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{background:var(--fondo);color:var(--tinta);font-family:var(--texto);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 button,a,summary{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--superficie)}
 a{color:var(--fucsia-texto)}
+img{max-width:100%}
 :focus-visible{outline:3px solid var(--fucsia);outline-offset:2px;border-radius:6px}
+main{overflow-x:clip}
 .envoltura{max-width:var(--ancho);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .titulo{font-family:var(--display);font-style:italic;font-stretch:66%;font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.005em;text-wrap:balance;margin:0}
 .precio{font-family:var(--display);font-stretch:85%;font-weight:800;font-variant-numeric:tabular-nums}
-.boton{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;font:700 16px var(--texto);text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:transform .2s var(--ease),background .2s}
+.boton{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 26px;border-radius:999px;font:700 16px var(--texto);text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:transform .2s var(--ease),background .2s,box-shadow .25s}
 .boton:active{transform:scale(.97)}
-.boton-fucsia{background:var(--fucsia);color:var(--sobre-fucsia)}
+.boton svg{flex:0 0 auto}
+.boton-fucsia{background:var(--fucsia);color:var(--sobre-fucsia);box-shadow:0 10px 24px rgba(224,24,108,.28)}
+.boton-fucsia:hover{box-shadow:0 14px 30px rgba(224,24,108,.38)}
 .boton-tinta{background:var(--tinta);color:var(--fondo)}
+.boton-blanco{background:#FFFFFF;color:#141017}
 .boton-borde{background:transparent;color:var(--tinta);border-color:var(--tinta)}
+.icono-btn{position:relative;width:44px;height:44px;border-radius:12px;border:1px solid var(--linea);background:var(--superficie);color:var(--tinta);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 auto}
+.icono-btn:hover{border-color:var(--chip-borde)}
+.contador{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--fucsia);color:#FFFFFF;font:700 11.5px/20px var(--texto);text-align:center}
+.contador.salta{animation:salta .5s var(--ease)}
+@keyframes salta{0%{transform:scale(.4)}60%{transform:scale(1.25)}100%{transform:none}}
 .saltar{position:absolute;left:12px;top:-60px;z-index:100;background:var(--tinta);color:var(--fondo);padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none}
 .saltar:focus{top:12px}
+.solo-lector{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.seccion{padding-block:64px}
+.cabeza-seccion{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.cabeza-seccion h2{font-size:clamp(36px,5vw,60px)}
+.cabeza-seccion p{margin:8px 0 0;color:var(--suave);max-width:52ch}
+.ceja{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--fucsia-texto);margin-bottom:10px}
+.ceja svg{width:14px;height:14px}
+.enlace-flecha{display:inline-flex;align-items:center;gap:6px;font:700 15px var(--texto);color:var(--tinta);text-decoration:none;border:0;border-bottom:2px solid var(--fucsia);padding:0 0 2px;background:none;cursor:pointer}
+.enlace-flecha:hover{color:var(--fucsia-texto)}
+
+/* Barra de anuncio (rota en el celular) */
+.anuncio{background:var(--anuncio-fondo);color:var(--anuncio-texto);font-size:13.5px;font-weight:600;overflow:hidden}
+.anuncio .envoltura{display:flex;justify-content:center;gap:10px 40px;padding-block:9px;position:relative;min-height:38px}
+.anuncio span{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.anuncio svg{color:var(--anuncio-icono)}
+@media (max-width:760px){
+  .anuncio span{position:absolute;left:0;right:0;justify-content:center;opacity:0;transform:translateY(100%);transition:opacity .4s,transform .4s var(--ease)}
+  .anuncio span.on{opacity:1;transform:none}
+}
+
+/* Cabecera */
+.cabecera{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--superficie);background:color-mix(in srgb,var(--superficie) 92%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--linea);transition:box-shadow .25s}
+.cabecera.con-sombra{box-shadow:0 6px 24px rgba(20,16,23,.08)}
+.cab-fila{display:flex;align-items:center;gap:14px;padding-block:8px}
+.menu{display:flex;gap:26px;margin-left:28px;font-weight:600;font-size:15px}
+.menu a{color:var(--tinta);text-decoration:none;position:relative;padding-block:6px}
+.menu a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--fucsia);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.menu a:hover::after{transform:none}
+.cab-iconos{display:flex;gap:8px;margin-left:auto}
+.nav-movil{display:none}
+@media (max-width:900px){
+  .menu{display:none}
+  .nav-movil{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 0 10px}
+  .nav-movil::-webkit-scrollbar{display:none}
+  .nav-movil a{flex:0 0 auto;height:34px;display:inline-flex;align-items:center;padding:0 14px;border-radius:999px;border:1px solid var(--linea);background:var(--superficie);color:var(--tinta);font-weight:600;font-size:14px;text-decoration:none}
+  .cab-iconos .solo-pc{display:none}
+}
+
+/* Portada en banners */
+.banners{position:relative;padding-top:16px}
+.banners .envoltura{position:relative}
+.carril{position:relative;border-radius:32px;overflow:hidden;height:clamp(520px,64vh,640px);isolation:isolate}
+.slide{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:center;padding:56px clamp(24px,5vw,72px);color:var(--s-tx);background:var(--s-bg);opacity:0;visibility:hidden;transition:opacity .7s var(--ease),visibility 0s .7s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .7s var(--ease),visibility 0s}
+.slide::before{content:attr(data-palabra);position:absolute;right:-2%;bottom:-6%;font-family:var(--display);font-style:italic;font-stretch:62%;font-weight:900;font-size:clamp(150px,26vw,380px);line-height:.8;text-transform:uppercase;color:transparent;-webkit-text-stroke:2px var(--s-trazo);pointer-events:none;z-index:0;white-space:nowrap}
+.s-texto{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:18px;max-width:520px}
+.s-texto .ceja{color:var(--s-ceja);margin:0}
+.s-texto h1,.s-texto h2{font-size:clamp(46px,6.4vw,92px);color:var(--s-tx)}
+.s-texto p{margin:0;font-size:18px;max-width:36ch;color:var(--s-sub)}
+.s-texto .boton{margin-top:6px}
+.s-escena{position:relative;z-index:1;height:100%;min-height:300px}
+.s-escena .disco{position:absolute;left:50%;top:50%;width:min(78%,440px);aspect-ratio:1;border-radius:50%;background:var(--s-disco);transform:translate(-50%,-50%)}
+.s-escena img{position:absolute;filter:var(--zapa-sombra);transition:transform .9s var(--ease);will-change:transform}
+.s-escena .z1{width:min(86%,560px);left:50%;top:52%;transform:translate(-50%,-50%) rotate(-14deg);z-index:3}
+.s-escena .z2{width:min(46%,300px);left:6%;top:12%;transform:rotate(12deg);z-index:2;opacity:.98}
+.s-escena .z3{width:min(40%,260px);right:2%;bottom:4%;transform:rotate(-4deg);z-index:2}
+.s-escena .chip-precio{position:absolute;right:8%;top:10%;z-index:4;background:#FFFFFF;color:#141017;border-radius:16px;padding:10px 14px;box-shadow:0 12px 30px rgba(0,0,0,.18);display:flex;flex-direction:column;line-height:1.2;text-decoration:none}
+.chip-precio small{font-size:12px;color:#6B6170}
+.chip-precio b{font-size:22px}
+.slide.on .z1{animation:flota 6s ease-in-out infinite}
+@keyframes flota{0%,100%{transform:translate(-50%,-50%) rotate(-14deg)}50%{transform:translate(-50%,-54%) rotate(-12deg)}}
+@media (prefers-reduced-motion: no-preference){
+  .slide.on .s-texto>*{animation:sube .7s var(--ease) both}
+  .slide.on .s-texto>*:nth-child(2){animation-delay:.06s}.slide.on .s-texto>*:nth-child(3){animation-delay:.12s}.slide.on .s-texto>*:nth-child(4){animation-delay:.18s}
+  .slide.on .z2{animation:entraIzq .9s var(--ease) .1s both}
+  .slide.on .z3{animation:entraDer .9s var(--ease) .2s both}
+  .slide.on .disco{animation:crece .9s var(--ease) both}
+}
+@media (prefers-reduced-motion: reduce){.slide.on .z1{animation:none}}
+@keyframes sube{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes crece{from{transform:translate(-50%,-50%) scale(.6);opacity:0}to{transform:translate(-50%,-50%);opacity:1}}
+@keyframes entraIzq{from{opacity:0;transform:translateX(-40px) rotate(24deg)}to{opacity:1;transform:rotate(12deg)}}
+@keyframes entraDer{from{opacity:0;transform:translateX(40px) rotate(-18deg)}to{opacity:1;transform:rotate(-4deg)}}
+.s-negro{--s-bg:#141017;--s-tx:#FFFFFF;--s-sub:#D6CCD3;--s-ceja:#FF6FA6;--s-trazo:rgba(255,255,255,.10);--s-disco:#E0186C}
+.s-fucsia{--s-bg:#E0186C;--s-tx:#FFFFFF;--s-sub:#FFE3EE;--s-ceja:#FFFFFF;--s-trazo:rgba(255,255,255,.22);--s-disco:#FF4D93}
+.s-rosa{--s-bg:#F8DDE7;--s-tx:#141017;--s-sub:#4D4552;--s-ceja:#B0105A;--s-trazo:rgba(176,16,90,.16);--s-disco:#FFFFFF}
+.s-crema{--s-bg:#EFE8DD;--s-tx:#141017;--s-sub:#4D4552;--s-ceja:#B0105A;--s-trazo:rgba(20,16,23,.08);--s-disco:#FFFFFF}
+.s-fucsia .boton-fucsia,.s-negro .boton-fucsia{box-shadow:none}
+.s-fucsia .boton-fucsia{background:#141017}
+.controles-banner{position:absolute;left:clamp(24px,5vw,72px);bottom:24px;z-index:5;display:flex;align-items:center;gap:14px}
+.barras{display:flex;gap:6px}
+.barras button{position:relative;width:42px;height:4px;border:0;padding:0;border-radius:4px;background:rgba(128,128,128,.35);cursor:pointer;overflow:hidden}
+.barras button::after{content:"";position:absolute;inset:-12px 0}
+.barras button i{position:absolute;inset:0;background:currentColor;transform:scaleX(0);transform-origin:left}
+.barras button.hecho i{transform:none}
+.barras button.on i{animation:progreso var(--dur,6s) linear forwards}
+.carril.pausa .barras button.on i{animation-play-state:paused}
+@keyframes progreso{to{transform:none}}
+.contador-slide{font:700 13px var(--texto);font-variant-numeric:tabular-nums;opacity:.8}
+.flechas-banner{position:absolute;right:24px;bottom:18px;z-index:5;display:flex;gap:8px}
+.flechas-banner button{width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#141017;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+@media (max-width:860px){
+  .carril{height:auto;min-height:640px;border-radius:24px}
+  .slide{grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr;align-items:start;padding:32px 24px 72px;gap:8px}
+  .s-texto{gap:12px}
+  .s-texto p{font-size:16px}
+  .s-escena{min-height:300px}
+  .slide::before{font-size:46vw;bottom:2%}
+  .flechas-banner{display:none}
+  .s-escena .chip-precio{top:auto;bottom:6%;right:4%}
+}
+
+/* Movimiento del logo y franja de marcas: ver bloques originales */
+
+/* Beneficios */
+.beneficios{background:var(--superficie);border-bottom:1px solid var(--linea)}
+.beneficios ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.beneficios li{display:flex;gap:14px;align-items:center;padding:22px 18px;min-width:0}
+.beneficios li+li{border-left:1px solid var(--linea)}
+.beneficios .ic{flex:0 0 auto;width:46px;height:46px;border-radius:14px;background:var(--rosa);color:var(--fucsia-texto);display:flex;align-items:center;justify-content:center}
+.beneficios b{display:block;font-size:15.5px}
+.beneficios span{color:var(--suave);font-size:14px;line-height:1.4}
+@media (max-width:980px){.beneficios ul{grid-template-columns:repeat(2,minmax(0,1fr))}.beneficios li:nth-child(3){border-left:0}.beneficios li:nth-child(n+3){border-top:1px solid var(--linea)}}
+@media (max-width:520px){.beneficios li{flex-direction:column;align-items:flex-start;gap:8px;padding:16px 10px}.beneficios span{font-size:13px}}
+
+/* Mosaico de categorías */
+.mosaico{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,minmax(240px,1fr));gap:16px}
+.bloque{position:relative;border-radius:28px;overflow:hidden;border:0;padding:24px;text-align:left;font:inherit;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;color:var(--b-tx);background:var(--b-bg);isolation:isolate;transition:transform .35s var(--ease),box-shadow .35s}
+.bloque:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
+.bloque.grande{grid-column:span 2;grid-row:span 2;padding:32px}
+.bloque.ancho{grid-column:span 2}
+.bloque .b-texto{position:relative;z-index:2}
+.bloque .b-texto span{display:block;font-weight:600;font-size:14px;opacity:.85;margin-bottom:6px}
+.bloque b{display:block;font-family:var(--display);font-style:italic;font-stretch:66%;font-weight:900;text-transform:uppercase;line-height:.9;font-size:clamp(34px,4vw,52px)}
+.bloque.grande b{font-size:clamp(48px,6.4vw,96px)}
+.bloque .b-ir{position:relative;z-index:2;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;border-radius:999px;background:var(--b-boton);color:var(--b-boton-tx);font-weight:700;font-size:14px;transition:gap .3s var(--ease)}
+.bloque:hover .b-ir{gap:14px}
+.bloque img{position:absolute;z-index:1;height:auto;aspect-ratio:1;width:min(64%,300px);right:-4%;bottom:-6%;transform:rotate(-14deg);filter:var(--zapa-sombra);transition:transform .6s var(--ease)}
+.bloque.grande img{width:min(86%,560px);right:-6%;bottom:-2%}
+.bloque.ancho img{width:min(52%,320px);right:0;bottom:-18%}
+.bloque:hover img{transform:rotate(-20deg) translateY(-8px) scale(1.04)}
+.bloque::after{content:"";position:absolute;width:70%;aspect-ratio:1;border-radius:50%;right:-12%;bottom:-18%;background:var(--b-disco);z-index:0}
+.b-fucsia{--b-bg:#E0186C;--b-tx:#FFFFFF;--b-boton:#FFFFFF;--b-boton-tx:#141017;--b-disco:rgba(255,255,255,.14)}
+.b-rosa{--b-bg:#F8DDE7;--b-tx:#141017;--b-boton:#141017;--b-boton-tx:#FFFFFF;--b-disco:rgba(255,255,255,.6)}
+.b-negro{--b-bg:#141017;--b-tx:#FFFFFF;--b-boton:#E0186C;--b-boton-tx:#FFFFFF;--b-disco:rgba(224,24,108,.35)}
+.b-crema{--b-bg:#EFE8DD;--b-tx:#141017;--b-boton:#141017;--b-boton-tx:#FFFFFF;--b-disco:rgba(255,255,255,.7)}
+@media (max-width:860px){
+  .mosaico{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;grid-auto-rows:minmax(190px,auto);gap:10px}
+  .bloque.grande{grid-row:span 1;min-height:300px;padding:22px}
+  .bloque{padding:18px;border-radius:22px}
+  .bloque b{font-size:34px}
+  .bloque.grande b{font-size:52px}
+  .bloque .b-ir{height:38px;padding:0 12px;font-size:13px}
+}
+
+/* Tarjetas de producto */
+.grilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:18px}
+@media (max-width:520px){.grilla{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+.card{position:relative;display:flex;flex-direction:column;min-width:0;border-radius:24px;background:var(--superficie);border:1px solid var(--linea);transition:box-shadow .3s,transform .3s var(--ease),border-color .3s}
+.card:hover{box-shadow:var(--sombra);transform:translateY(-3px);border-color:transparent}
+.card-foto{position:relative;aspect-ratio:1/1;margin:8px;border-radius:18px;background:var(--foto-bg);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.card-foto img{width:92%;height:auto;transform:rotate(-8deg);filter:var(--zapa-sombra);transition:transform .5s var(--ease)}
+.card-foto img.plana{width:100%;height:100%;object-fit:contain;transform:none;filter:none;mix-blend-mode:multiply}
+.card:hover .card-foto img:not(.plana){transform:rotate(-14deg) translateY(-6px) scale(1.05)}
+.card-abrir{position:absolute;inset:0;z-index:1;border:0;background:transparent;border-radius:24px;cursor:pointer;padding:0}
+.sello{position:absolute;left:10px;top:10px;z-index:2;font:700 11.5px var(--texto);letter-spacing:.01em;padding:5px 10px;border-radius:999px;background:var(--fucsia);color:#FFFFFF}
+.sello.oscuro{background:#141017;color:#FFFFFF}
+.fav{position:absolute;right:10px;top:10px;z-index:3;width:38px;height:38px;border-radius:50%;border:0;background:var(--superficie);color:var(--tinta);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--sombra-chica);transition:transform .2s var(--ease),color .2s}
+.fav:hover{transform:scale(1.08)}
+.fav[aria-pressed="true"]{color:var(--fucsia)}
+.fav[aria-pressed="true"] path{fill:currentColor}
+.rapido{position:absolute;left:8px;right:8px;bottom:8px;z-index:3;background:var(--superficie);background:color-mix(in srgb,var(--superficie) 94%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(10px);transition:opacity .25s,transform .3s var(--ease);pointer-events:none}
+.rapido small{font-size:12px;font-weight:700;color:var(--suave)}
+.rapido div{display:flex;flex-wrap:wrap;gap:4px}
+.rapido button{min-width:38px;height:30px;padding:0 8px;border-radius:8px;border:1px solid var(--chip-borde);background:var(--chip);color:var(--tinta);font:700 13px var(--texto);cursor:pointer}
+.rapido button:hover{background:var(--tinta);color:var(--fondo);border-color:var(--tinta)}
+@media (hover:hover) and (pointer:fine){.card:hover .rapido,.card:focus-within .rapido{opacity:1;transform:none;pointer-events:auto}}
+.card-info{padding:6px 16px 16px;display:flex;flex-direction:column;gap:2px;flex:1}
+.card-info .marca{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--fucsia-texto)}
+.card-info .nombre{font-size:15.5px;font-weight:700;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-info .color{font-size:13px;color:var(--tenue)}
+.card-pie{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-top:auto;padding-top:8px}
+.card-pie .precio{font-size:23px}
+.card-pie small{font-size:12px;font-weight:600;color:var(--suave);background:var(--fondo);border:1px solid var(--linea);border-radius:999px;padding:3px 8px;white-space:nowrap}
+@media (max-width:520px){.card-info{padding:4px 10px 12px}.card-pie{flex-direction:column;align-items:flex-start;gap:4px}.card-pie .precio{font-size:20px}.card-foto{margin:6px}.fav{width:34px;height:34px}}
+@media (prefers-reduced-motion: no-preference){.aparece{animation:sube .5s var(--ease) both;animation-delay:calc(var(--i,0) * 35ms)}}
+
+/* Rieles */
+.riel{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,272px);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 18px;scrollbar-width:thin}
+.riel>*{scroll-snap-align:start}
+@media (max-width:520px){.riel{grid-auto-columns:70%;gap:10px}}
+.riel-flechas{display:flex;gap:8px;align-items:center}
+@media (max-width:860px){.riel-flechas .icono-btn{display:none}}
+
+/* Sección negra: últimos pares */
+.oscura{background:#0E0C10;color:#FBF8F9;position:relative;overflow:hidden}
+.oscura::before{content:"ÚLTIMOS";position:absolute;left:-1%;top:10px;font-family:var(--display);font-style:italic;font-stretch:62%;font-weight:900;font-size:clamp(120px,20vw,300px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.07);pointer-events:none}
+.oscura .cabeza-seccion p{color:#B9AEB6}
+.oscura .ceja{color:#FF6FA6}
+.oscura .enlace-flecha{color:#FFFFFF}
+.oscura .card{background:#1C161F;border-color:#2C2431;color:#FBF8F9}
+.oscura .card-foto{background:#262028}
+.oscura .card-info .marca{color:#FF6FA6}
+.oscura .card-info .color{color:#B9AEB6}
+.oscura .card-pie small{background:#120E14;border-color:#2C2431;color:#D6CCD3}
+.oscura .icono-btn{background:#1C161F;border-color:#2C2431;color:#FFFFFF}
+.oscura .fav{background:#2C2431;color:#FFFFFF}
+.oscura .rapido{background:rgba(28,22,31,.94)}
+.oscura .rapido small{color:#D6CCD3}
+.oscura .rapido button{background:#1C161F;border-color:#3A3140;color:#FFFFFF}
+
+/* Buscador de talla grande */
+.tu-talla .caja{border-radius:32px;background:var(--rosa);padding:clamp(24px,5vw,48px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:32px;align-items:center}
+.tu-talla h2{font-size:clamp(40px,5.4vw,72px)}
+.tu-talla p{color:var(--suave);margin:14px 0 0;max-width:38ch}
+.grilla-tallas{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:8px}
+.grilla-tallas button{height:56px;border-radius:14px;border:1.5px solid transparent;background:var(--superficie);color:var(--tinta);font:800 18px var(--display);font-stretch:85%;cursor:pointer;transition:transform .2s var(--ease),background .2s,color .2s;box-shadow:var(--sombra-chica)}
+.grilla-tallas button:hover{transform:translateY(-3px);background:var(--tinta);color:var(--fondo)}
+.grilla-tallas button small{display:block;font:600 10.5px var(--texto);opacity:.7;white-space:nowrap}
+@media (max-width:860px){.tu-talla .caja{grid-template-columns:minmax(0,1fr)}}
+
+/* Filtros y catálogo */
+.filtros{position:relative;z-index:2;background:var(--superficie);background:color-mix(in srgb,var(--fondo) 94%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-block:1px solid var(--linea)}
+.filtros .envoltura{padding-block:12px;display:flex;flex-direction:column;gap:10px}
+.fila{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.fila::-webkit-scrollbar{display:none}
+.talla{flex:0 0 auto;min-width:52px;height:44px;padding:0 12px;border-radius:12px;border:1.5px solid var(--chip-borde);background:var(--chip);color:var(--tinta);font:700 15px var(--texto);cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s var(--ease);font-variant-numeric:tabular-nums}
+.talla[aria-pressed="true"]{background:var(--chip-on);color:var(--chip-on-texto);border-color:var(--chip-on);transform:translateY(-2px)}
+.pildora{flex:0 0 auto;height:40px;padding:0 16px;border-radius:999px;border:1.5px solid var(--chip-borde);background:var(--chip);color:var(--tinta);font:600 14px var(--texto);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.pildora[aria-pressed="true"]{background:var(--tinta);color:var(--fondo);border-color:var(--tinta)}
+.controles{display:grid;grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,auto));gap:8px;align-items:center}
+#categorias{grid-column:1/-1;min-width:0}
+@media (max-width:760px){.controles{grid-template-columns:repeat(3,minmax(0,1fr))}.controles .buscar{grid-column:1/-1}.controles select{width:100%;font-size:16px;padding:0 6px}}
+.buscar{min-width:0;display:flex;align-items:center;gap:8px;height:44px;border:1.5px solid var(--chip-borde);background:var(--chip);border-radius:12px;padding:0 12px;color:var(--tenue)}
+.buscar input{border:0;outline:0;background:transparent;color:var(--tinta);font:500 16px var(--texto);width:100%;min-width:0;-webkit-appearance:none;appearance:none}
+select{height:44px;border-radius:12px;border:1.5px solid var(--chip-borde);background:var(--chip);color:var(--tinta);font:600 16px var(--texto);padding:0 10px;max-width:100%}
+
+.catalogo .envoltura{padding-block:32px 64px;display:flex;flex-direction:column;gap:22px}
+.resumen{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+.resumen h2{font-size:clamp(36px,5vw,60px)}
+.resumen span{color:var(--tenue);font-size:15px}
+.mas{align-self:center}
+.esqueleto{border-radius:24px;overflow:hidden;background:var(--superficie);border:1px solid var(--linea);padding:8px}
+.esqueleto .e-foto{aspect-ratio:1/1;border-radius:18px;background:var(--esqueleto)}
+.esqueleto .e-l{height:12px;border-radius:6px;background:var(--esqueleto);margin:12px 8px 0}
+.esqueleto .e-l.corta{width:45%;margin-bottom:12px}
+@media (prefers-reduced-motion: no-preference){.esqueleto .e-foto,.esqueleto .e-l{animation:pulso 1.2s ease-in-out infinite alternate}}
+@keyframes pulso{from{opacity:1}to{opacity:.45}}
+.vacio{border:1.5px dashed var(--chip-borde);border-radius:24px;padding:36px;text-align:center;color:var(--suave);display:flex;flex-direction:column;gap:12px;align-items:center}
+
+/* Así se compra */
+.pasos ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:paso}
+@media (max-width:860px){.pasos ol{grid-template-columns:minmax(0,1fr)}}
+.pasos li{position:relative;background:var(--superficie);border:1px solid var(--linea);border-radius:24px;padding:28px 24px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.pasos .n{font-family:var(--display);font-style:italic;font-stretch:66%;font-weight:900;font-size:96px;line-height:.8;color:transparent;-webkit-text-stroke:2px var(--fucsia);position:absolute;right:16px;top:14px;opacity:.9}
+.pasos .ic{width:48px;height:48px;border-radius:14px;background:var(--tinta);color:var(--fondo);display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.pasos b{font-size:19px}
+.pasos span{color:var(--suave);font-size:15px;max-width:30ch}
+
+/* Novedades por WhatsApp */
+.novedades .caja{border-radius:32px;background:#141017;color:#FFFFFF;padding:clamp(28px,5vw,56px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden}
+.novedades .caja::after{content:"";position:absolute;width:380px;aspect-ratio:1;border-radius:50%;background:#E0186C;right:-120px;top:-160px;opacity:.9}
+.novedades h2{font-size:clamp(36px,4.6vw,60px);color:#FFFFFF;position:relative;z-index:1}
+.novedades p{color:#D6CCD3;margin:10px 0 0;max-width:46ch;position:relative;z-index:1}
+.novedades .boton{position:relative;z-index:1}
+
+/* Preguntas, tienda y pie */
+.faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px;align-items:start}
+@media (max-width:860px){.faq{grid-template-columns:minmax(0,1fr)}}
+.faq h2{font-size:clamp(36px,5vw,60px)}
+.faq-intro p{color:var(--suave);margin:12px 0 18px;max-width:40ch}
+.faq-lista{display:flex;flex-direction:column;gap:10px}
+.faq details{background:var(--superficie);border:1px solid var(--linea);border-radius:18px;padding:0 20px}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;font-weight:700;font-size:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary svg{flex:0 0 auto;transition:transform .25s var(--ease);color:var(--fucsia-texto)}
+.faq details[open] summary svg{transform:rotate(45deg)}
+.faq details p{margin:0 0 18px;color:var(--suave)}
+.tienda .caja{background:var(--crema);border-radius:32px;padding:clamp(22px,5vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:28px}
+.tienda h2{font-size:clamp(36px,5vw,60px)}
+.datos dl{margin:16px 0 20px}
+.datos dt{font-size:13px;color:var(--suave);font-weight:600}
+.datos dd{margin:0 0 10px;font-weight:700;font-size:17px}
+.pendiente{color:var(--fucsia-texto)}
+.mapa{border:1.5px dashed var(--chip-borde);border-radius:24px;min-height:240px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:var(--suave);background:var(--superficie)}
+.pie-pagina{background:#0E0C10;color:#D6CCD3;font-size:14.5px}
+.pie-cols{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:32px;padding-block:56px 32px}
+@media (max-width:860px){.pie-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 20px}.pie-marca{grid-column:1/-1}}
+.pie-marca img{width:52px;height:52px;margin-bottom:12px}
+.pie-marca p{margin:0 0 14px;max-width:34ch}
+.pie-cols h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#FFFFFF;margin:0 0 12px}
+.pie-cols ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.pie-pagina a{color:#D6CCD3;text-decoration:none;font-weight:500}
+.pie-pagina a:hover{color:#FFFFFF}
+.pie-legal{border-top:1px solid #2C2431;padding-block:18px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;color:#B9AEB6;font-size:13px}
+#redes{display:flex;gap:8px;flex-wrap:wrap}
+#redes a{border:1px solid #3A3140;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+
+/* WhatsApp: barra en celular y botón flotante en computador */
+.barra-wa{display:none}
+@media (max-width:860px){
+  .barra-wa{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:var(--superficie);background:color-mix(in srgb,var(--superficie) 94%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--linea)}
+  .barra-wa .boton{flex:1;min-height:48px}
+  .barra-wa .icono-btn{width:48px;height:48px}
+  body{padding-bottom:80px}
+}
+.wa-flotante{position:fixed;right:max(24px,env(safe-area-inset-right,0px));bottom:24px;z-index:44;width:60px;height:60px;border-radius:50%;background:var(--fucsia);color:#FFFFFF;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(224,24,108,.35);transition:transform .25s var(--ease),opacity .25s;opacity:0;transform:translateY(16px) scale(.9);pointer-events:none}
+.wa-flotante.ver{opacity:1;transform:none;pointer-events:auto}
+@media (max-width:860px){.wa-flotante{display:none}}
+
+/* Diálogos: ficha, bolsa, buscador, guía de tallas */
+dialog{color:var(--tinta)}
+dialog::backdrop{background:var(--velo);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.hoja{border:0;padding:0;background:transparent;max-width:100vw;max-height:100dvh;width:min(1040px,100vw)}
+.hoja-caja{position:relative;background:var(--superficie);border-radius:28px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);overflow:hidden;max-height:calc(100dvh - 32px)}
+.escenario{position:relative;background:var(--foto-bg);display:flex;align-items:center;justify-content:center;min-height:420px;overflow:hidden;cursor:zoom-in}
+.escenario img{width:88%;height:auto;transform:rotate(-10deg);filter:var(--zapa-sombra);transition:transform .35s var(--ease)}
+.escenario img.plana{width:100%;height:100%;object-fit:contain;transform:none;filter:none;mix-blend-mode:multiply}
+.escenario.zoom{cursor:zoom-out}
+.escenario.zoom img{transform:rotate(-10deg) scale(1.8)}
+.escenario .pista{position:absolute;left:16px;bottom:14px;font-size:12px;font-weight:600;color:var(--tenue);background:var(--superficie);border-radius:999px;padding:5px 10px}
+.hoja-info{padding:28px;display:flex;flex-direction:column;gap:14px;overflow:auto}
+.hoja-info .marca{font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--fucsia-texto)}
+.hoja-info h3{font-size:clamp(34px,4vw,48px);outline:none;padding-right:48px}
+.hoja-info .color{color:var(--tenue);font-size:14px}
+.precio-fila{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.precio-fila .precio{font-size:36px}
+.etq{font-size:12.5px;font-weight:700;border-radius:999px;padding:4px 10px;background:var(--rosa);color:var(--fucsia-texto)}
+.tallas-cab{display:flex;justify-content:space-between;align-items:center}
+.tallas-cab b{font-size:14px}
+.link{background:none;border:0;padding:0;font:600 14px var(--texto);color:var(--fucsia-texto);text-decoration:underline;cursor:pointer}
+.tallas-ficha{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(64px,100%),1fr));gap:8px}
+.tallas-ficha .talla{width:100%}
+.tallas-ficha .talla.ultimo{position:relative}
+.tallas-ficha .talla.ultimo::after{content:"";position:absolute;top:6px;right:6px;width:6px;height:6px;border-radius:50%;background:var(--fucsia)}
+.aviso-talla{font-size:13.5px;color:var(--fucsia-texto);font-weight:600;min-height:1.2em}
+.ficha-acciones{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}
+.ficha-acciones .boton{width:100%}
+.ficha-acciones .ancho{grid-column:1/-1}
+.ficha-mini{display:flex;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--suave)}
+.ficha-mini span{display:inline-flex;align-items:center;gap:6px}
+.ficha-mini svg{color:var(--fucsia-texto)}
+.relacionados{border-top:1px solid var(--linea);padding-top:16px}
+.relacionados b{font-size:14px;display:block;margin-bottom:10px}
+.rel-lista{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.rel-lista button{border:1px solid var(--linea);background:var(--superficie);border-radius:14px;padding:6px;cursor:pointer;text-align:left;font:inherit;color:inherit;display:flex;flex-direction:column;gap:4px;min-width:0}
+.rel-lista .rf{aspect-ratio:1;border-radius:10px;background:var(--foto-bg);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.rel-lista img{width:88%;transform:rotate(-8deg);filter:var(--zapa-sombra)}
+.rel-lista img.plana{width:100%;transform:none;filter:none;mix-blend-mode:multiply}
+.rel-lista span{font-size:12px;font-weight:600;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rel-lista .precio{font-size:15px}
+.cerrar{position:absolute;right:16px;top:16px;z-index:5}
+@media (max-width:760px){
+  .hoja{margin:auto 0 0;width:100vw}
+  .hoja-caja{grid-template-columns:minmax(0,1fr);border-radius:26px 26px 0 0;max-height:94dvh;overflow:auto}
+  .escenario{min-height:0;aspect-ratio:4/3}
+  .hoja-info{overflow:visible;padding:20px 18px calc(22px + env(safe-area-inset-bottom,0px))}
+  .ficha-acciones{position:sticky;bottom:calc(10px + env(safe-area-inset-bottom,0px));background:var(--superficie);padding-top:8px;box-shadow:0 -12px 18px var(--superficie)}
+}
+@media (prefers-reduced-motion: no-preference){.hoja[open] .hoja-caja{animation:hojaSube .35s var(--ease) both}.panel[open] .panel-caja{animation:panelEntra .35s var(--ease) both}}
+@keyframes hojaSube{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+@keyframes panelEntra{from{transform:translateX(40px);opacity:0}to{transform:none;opacity:1}}
+
+/* Panel lateral: bolsa */
+.panel{border:0;padding:0;margin:0 0 0 auto;height:100dvh;max-height:100dvh;width:min(440px,100vw);background:transparent}
+.panel-caja{height:100%;background:var(--superficie);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+.panel-cab{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--linea)}
+.panel-cab h2{font-size:32px}
+.panel-cuerpo{flex:1;overflow:auto;padding:12px 20px;display:flex;flex-direction:column;gap:12px}
+.item{display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px;border:1px solid var(--linea);border-radius:18px}
+.item .if{aspect-ratio:1;border-radius:12px;background:var(--foto-bg);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.item .if img{width:90%;transform:rotate(-8deg);filter:var(--zapa-sombra)}
+.item .if img.plana{width:100%;transform:none;filter:none;mix-blend-mode:multiply}
+.item b{font-size:14.5px;line-height:1.25;display:block}
+.item small{color:var(--tenue);font-size:12.5px;display:block}
+.item .precio{font-size:18px}
+.cant{display:flex;align-items:center;gap:6px;margin-top:6px}
+.cant button{width:30px;height:30px;border-radius:8px;border:1px solid var(--chip-borde);background:var(--chip);color:var(--tinta);font:700 16px var(--texto);cursor:pointer}
+.cant span{min-width:18px;text-align:center;font-weight:700}
+.quitar{background:none;border:0;color:var(--tenue);cursor:pointer;padding:6px}
+.panel-pie{border-top:1px solid var(--linea);padding:16px 20px calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:10px}
+.total{display:flex;justify-content:space-between;align-items:baseline}
+.total .precio{font-size:30px}
+.panel-pie small{color:var(--tenue);font-size:12.5px}
+.bolsa-vacia{margin:auto;text-align:center;color:var(--suave);display:flex;flex-direction:column;align-items:center;gap:12px;padding:24px}
+.bolsa-vacia .ic{width:72px;height:72px;border-radius:50%;background:var(--rosa);color:var(--fucsia-texto);display:flex;align-items:center;justify-content:center}
+
+/* Buscador con sugerencias */
+.buscador{border:0;padding:0;margin:0 auto auto;width:min(720px,100vw);max-height:90dvh;background:transparent}
+.buscador-caja{background:var(--superficie);border-radius:0 0 26px 26px;padding:calc(16px + env(safe-area-inset-top,0px)) 18px 18px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--sombra)}
+@media (min-width:761px){.buscador{margin-top:72px}.buscador-caja{border-radius:26px}}
+.buscador-fila{display:flex;gap:10px;align-items:center}
+.buscador-fila .buscar{height:52px;flex:1}
+.sugerencias{display:flex;flex-direction:column;gap:4px;max-height:60dvh;overflow:auto}
+.sug{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:12px;align-items:center;padding:8px;border-radius:14px;border:0;background:transparent;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.sug:hover,.sug:focus-visible{background:var(--fondo)}
+.sug .sf{aspect-ratio:1;border-radius:10px;background:var(--foto-bg);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.sug img{width:90%;transform:rotate(-8deg)}
+.sug img.plana{width:100%;transform:none;mix-blend-mode:multiply}
+.sug b{font-size:14.5px;display:block}
+.sug small{font-size:12.5px;color:var(--tenue)}
+.sug mark{background:var(--rosa);color:inherit;border-radius:3px}
+.populares{display:flex;flex-wrap:wrap;gap:8px}
+.populares small{width:100%;color:var(--tenue);font-weight:600}
+
+/* Guía de tallas */
+.guia{border:0;padding:0;background:transparent;width:min(560px,100vw);max-height:92dvh}
+.guia-caja{background:var(--superficie);border-radius:26px;padding:26px;display:flex;flex-direction:column;gap:14px;max-height:92dvh;overflow:auto;position:relative}
+.guia h2{font-size:38px;padding-right:48px}
+.guia p{margin:0;color:var(--suave);font-size:14.5px}
+.tabla{overflow-x:auto;border:1px solid var(--linea);border-radius:16px}
+.tabla table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+.tabla th,.tabla td{padding:9px 12px;text-align:center;border-bottom:1px solid var(--linea)}
+.tabla th{background:var(--fondo);font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--suave)}
+.tabla tr:last-child td{border-bottom:0}
+
+/* Aviso flotante */
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:200;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#141017;color:#FFFFFF;border-radius:16px;padding:12px 14px 12px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 18px 40px rgba(0,0,0,.25);transition:opacity .3s,transform .35s var(--ease);max-width:calc(100vw - 32px);font-weight:600;font-size:14.5px}
+.toast.ver{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast button{background:#E0186C;color:#FFFFFF;border:0;border-radius:999px;padding:8px 14px;font:700 13px var(--texto);cursor:pointer;white-space:nowrap}
+@media (min-width:861px){.toast{bottom:32px}}
+
+/* Si falta el recorte, en portada y mosaico no se muestra la foto con fondo blanco */
+.s-escena img.plana,.bloque img.plana{display:none}
+@media (max-width:860px){
+  .s-escena .z2,.s-escena .z3{display:none}
+  .s-escena .z1{width:min(92%,420px);top:50%}
+  .s-texto h1,.s-texto h2{font-size:clamp(38px,11vw,56px)}
+}
+@media (max-width:520px){
+  .grilla-tallas{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+  .grilla-tallas button{height:50px;font-size:16px}
+  .grilla-tallas button small{font-size:9.5px}
+  .bloque:not(.grande) b{font-size:clamp(22px,6.8vw,34px)}
+  .bloque:not(.grande){padding:14px}
+}
+@media (max-width:860px){
+  .slide{grid-template-rows:minmax(220px,1fr) auto;align-items:end;padding-top:12px}
+  .s-escena{order:-1;min-height:220px}
+  .s-escena .z1{width:min(84%,360px)}
+  .s-escena .disco{width:min(64%,260px)}
+  .s-escena .chip-precio{top:6%;bottom:auto;right:0;padding:8px 12px}
+  .chip-precio b{font-size:18px}
+  .slide::before{top:4%;bottom:auto}
+}
+img{height:auto}
+.guia td,.guia th{white-space:nowrap}
+.boton.listo{background:#1E8A4C;border-color:#1E8A4C;color:#FFFFFF}
+@media (max-width:860px){.ficha-acciones{bottom:0;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));box-shadow:0 -14px 16px -2px var(--superficie)}}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .b-negro{box-shadow:inset 0 0 0 1px #3A3140}}
+:root[data-theme="dark"] .b-negro{box-shadow:inset 0 0 0 1px #3A3140}
+.mapa.con-mapa{position:relative;padding:0;border:0;overflow:hidden;min-height:320px;background:var(--foto-bg)}
+.mapa.con-mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mapa.con-mapa .boton{position:absolute;left:14px;bottom:14px;z-index:2;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.mapa.sin-embed{background-color:#EDE7EC;background-image:linear-gradient(28deg,transparent 46%,#FFFFFF 46%,#FFFFFF 54%,transparent 54%),linear-gradient(118deg,transparent 47%,#FFFFFF 47%,#FFFFFF 51%,transparent 51%),repeating-linear-gradient(0deg,transparent 0 46px,rgba(255,255,255,.7) 46px 50px),repeating-linear-gradient(90deg,transparent 0 62px,rgba(255,255,255,.7) 62px 66px);display:flex;align-items:center;justify-content:center}
+.mapa .pin{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;background:#FFFFFF;color:#141017;border-radius:18px;padding:14px 18px;box-shadow:0 12px 30px rgba(0,0,0,.15);text-align:center;max-width:80%}
+.mapa .pin b{font-size:15px}.mapa .pin small{font-size:12px;color:#6B6170}
 
 /* Logo animado (cabecera) */
 .marca-inicio{display:block;border-radius:10px;-webkit-tap-highlight-color:transparent}
@@ -96,234 +562,6 @@ a{color:var(--fucsia-texto)}
 @keyframes lgBarre{0%{transform:skewX(-18deg) translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:skewX(-18deg) translateX(820px);opacity:0}}
 @keyframes lgTitila{0%,86%,100%{transform:none}90%{transform:scale(.82) rotate(12deg)}94%{transform:scale(1.14) rotate(-4deg)}}
 
-/* Cabecera */
-.cabecera{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--superficie);border-bottom:1px solid var(--linea)}
-.cabecera .envoltura{display:flex;align-items:center;gap:20px;padding-block:8px}
-.menu{display:flex;gap:22px;margin-left:auto;font-weight:600;font-size:15px}
-.menu a{color:var(--tinta);text-decoration:none}
-.menu a:hover{color:var(--fucsia-texto)}
-.icono-btn{width:44px;height:44px;border-radius:12px;border:1px solid var(--linea);background:var(--superficie);color:var(--tinta);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
-.cab-wa{min-height:44px;padding:0 18px;font-size:15px}
-@media (max-width:860px){.menu{display:none}.cab-wa{display:none}.icono-btn{margin-left:auto}}
-
-/* Portada */
-.portada{overflow:hidden}
-main{overflow-x:clip}
-.portada .envoltura{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center;padding-block:48px 40px}
-.portada h1{font-size:clamp(38px,8.4vw,118px)}
-@media (max-width:860px){.portada h1{font-size:clamp(38px,12.6vw,64px)}}
-.portada p{font-size:19px;color:var(--suave);max-width:34ch;margin:22px 0 26px}
-.acciones{display:flex;flex-wrap:wrap;gap:12px}
-.cifras{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:30px;color:var(--suave);font-size:15px}
-.cifras b{display:block;font-family:var(--display);font-stretch:85%;font-weight:800;font-size:30px;color:var(--tinta);line-height:1.1;font-variant-numeric:tabular-nums}
-.escena{position:relative;aspect-ratio:1/1;max-width:100%}
-.disco{position:absolute;inset:2%;border-radius:50%;background:var(--rosa)}
-.destello{position:absolute;top:8%;right:10%;width:64px;height:64px;color:var(--fucsia)}
-.zapa{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.zapa img{width:88%;height:auto;background:#FFFFFF;clip-path:circle(46%);transform:rotate(-8deg);cursor:pointer}
-.puntos{position:absolute;right:6%;bottom:6%;display:flex;gap:6px;background:var(--superficie);padding:8px 10px;border-radius:999px;box-shadow:var(--sombra)}
-.puntos button{width:9px;height:9px;padding:0;border:0;border-radius:999px;background:var(--chip-borde);cursor:pointer;transition:width .3s var(--ease),background .3s}
-.puntos button[aria-current="true"]{width:26px;background:var(--fucsia)}
-.puntos button::after{content:"";position:absolute;inset:-10px -4px}
-.puntos button{position:relative}
-.etiqueta{position:absolute;left:4%;bottom:8%;background:var(--superficie);border-radius:18px;padding:12px 18px;box-shadow:var(--sombra);display:flex;flex-direction:column;text-decoration:none;color:var(--tinta)}
-.etiqueta span{font-size:13px;color:var(--tenue)}
-.etiqueta .precio{font-size:26px}
-@media (max-width:860px){.portada .envoltura{grid-template-columns:minmax(0,1fr);padding-block:28px 24px}.escena{max-width:440px;margin:0 auto;width:100%}.portada p{margin:16px 0 20px}}
-
-/* Movimiento: una sola entrada orquestada en la portada */
-@media (prefers-reduced-motion: no-preference){
-  .portada h1,.portada p,.acciones,.cifras{animation:sube .8s var(--ease) both}
-  .portada p{animation-delay:.08s}.acciones{animation-delay:.16s}.cifras{animation-delay:.24s}
-  .disco{animation:crece 1s var(--ease) both}
-  .zapa img{animation:entra 1.1s var(--ease) .15s both}
-  .destello{animation:brilla 1.2s var(--ease) .7s both}
-  .etiqueta{animation:sube .7s var(--ease) .9s both}
-  .tarjeta{animation:sube .5s var(--ease) both;animation-delay:calc(var(--i,0) * 35ms)}
-  .tarjeta:hover .foto img{transform:scale(1.05) rotate(-3deg)}
-  .hoja[open] .hoja-caja{animation:hoja .35s var(--ease) both}
-}
-@keyframes sube{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-@keyframes crece{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
-@keyframes entra{from{opacity:0;transform:translateX(18%) rotate(12deg)}to{opacity:1;transform:rotate(-8deg)}}
-@keyframes zapaSale{from{opacity:1;transform:rotate(-8deg)}to{opacity:0;transform:translateX(-20%) rotate(-26deg)}}
-@keyframes etiquetaCambia{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:none}}
-.zapa img.funde{animation:fundeZapa .6s ease both}
-@keyframes fundeZapa{from{opacity:0}to{opacity:1}}
-@keyframes discoLatido{0%,100%{transform:none}50%{transform:scale(1.03)}}
-@media (prefers-reduced-motion: no-preference){
-  .zapa img.sale{animation:zapaSale .42s cubic-bezier(.5,0,.75,0) both}
-  .zapa img.entrando{animation:entra .75s var(--ease) both}
-  .etiqueta.cambia{animation:etiquetaCambia .5s var(--ease) .2s both}
-  .destello.pulso{animation:brilla .9s var(--ease) both}
-  .disco.late{animation:discoLatido .8s var(--ease)}
-}
-@keyframes brilla{0%{opacity:0;transform:scale(.2) rotate(-40deg)}60%{opacity:1;transform:scale(1.2) rotate(8deg)}100%{opacity:1;transform:none}}
-@keyframes hoja{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
-
-/* Barra de tallas y filtros */
-.filtros{position:sticky;top:calc(env(safe-area-inset-top,0px) + 69px);z-index:40;background:var(--fondo);border-bottom:1px solid var(--linea)}
-.filtros .envoltura{padding-block:12px;display:flex;flex-direction:column;gap:10px}
-.fila{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
-.fila::-webkit-scrollbar{display:none}
-.fila-titulo{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.fila-titulo h2{font-size:28px}
-.fila-titulo span{color:var(--tenue);font-size:14px}
-.talla{flex:0 0 auto;min-width:52px;height:44px;padding:0 12px;border-radius:12px;border:1.5px solid var(--chip-borde);background:var(--chip);color:var(--tinta);font:700 15px var(--texto);cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s var(--ease);font-variant-numeric:tabular-nums}
-.talla[aria-pressed="true"]{background:var(--chip-on);color:var(--chip-on-texto);border-color:var(--chip-on);transform:translateY(-2px)}
-.pildora{flex:0 0 auto;height:40px;padding:0 16px;border-radius:999px;border:1.5px solid var(--chip-borde);background:var(--chip);color:var(--tinta);font:600 14px var(--texto);cursor:pointer;transition:background .2s,color .2s}
-.pildora[aria-pressed="true"]{background:var(--tinta);color:var(--fondo);border-color:var(--tinta)}
-.controles{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-#categorias{flex:1 1 520px;min-width:0}
-.controles .buscar{flex:1 1 200px}
-.buscar{flex:1 1 220px;min-width:0;display:flex;align-items:center;gap:8px;height:44px;border:1.5px solid var(--chip-borde);background:var(--chip);border-radius:12px;padding:0 12px;color:var(--tenue)}
-.buscar input{border:0;outline:0;background:transparent;color:var(--tinta);font:500 16px var(--texto);width:100%;min-width:0;-webkit-appearance:none;appearance:none}
-select{height:44px;border-radius:12px;border:1.5px solid var(--chip-borde);background:var(--chip);color:var(--tinta);font:600 16px var(--texto);padding:0 10px;max-width:100%}
-@media (max-width:860px){.filtros{position:static}}
-
-/* Catálogo */
-.catalogo .envoltura{padding-block:28px 56px;display:flex;flex-direction:column;gap:20px}
-.resumen{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
-.resumen h2{font-size:clamp(34px,4.6vw,52px)}
-.resumen span{color:var(--tenue);font-size:15px}
-.grilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(228px,100%),1fr));gap:16px}
-@media (max-width:520px){.grilla{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
-.tarjeta{background:var(--superficie);border:1px solid var(--linea);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;text-align:left;padding:0;font:inherit;color:inherit;cursor:pointer;transition:border-color .2s,box-shadow .25s}
-.tarjeta:hover{border-color:var(--chip-borde);box-shadow:var(--sombra)}
-.foto{background:var(--foto);aspect-ratio:1/1;position:relative;overflow:hidden}
-.foto img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .45s var(--ease)}
-.sello{position:absolute;left:10px;top:10px;font:700 12px var(--texto);padding:5px 9px;border-radius:999px;background:var(--fucsia);color:var(--sobre-fucsia)}
-.sello.oscuro{background:#141017;color:#FFFFFF}
-.info{padding:12px 14px 14px;display:flex;flex-direction:column;gap:3px;flex:1;border-top:1px solid var(--linea)}
-.marca{font-size:12.5px;font-weight:700;color:var(--fucsia-texto)}
-.nombre{font-size:15px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.color{font-size:13px;color:var(--tenue)}
-.pie{display:flex;justify-content:space-between;align-items:end;gap:6px;margin-top:auto;padding-top:6px}
-.pie .precio{font-size:22px}
-.tallas-mini{font-size:12.5px;font-weight:600;color:var(--suave)}
-.mas{align-self:center}
-.esqueleto{background:var(--superficie);border:1px solid var(--linea);border-radius:20px;overflow:hidden}
-.esqueleto .e-foto{aspect-ratio:1/1;background:var(--esqueleto)}
-.esqueleto .e-l{height:12px;border-radius:6px;background:var(--esqueleto);margin:12px 14px 0}
-.esqueleto .e-l.corta{width:45%;margin-bottom:16px}
-@media (prefers-reduced-motion: no-preference){.esqueleto .e-foto,.esqueleto .e-l{animation:pulso 1.2s ease-in-out infinite alternate}}
-@keyframes pulso{from{opacity:1}to{opacity:.45}}
-.vacio{border:1.5px dashed var(--chip-borde);border-radius:20px;padding:36px;text-align:center;color:var(--suave);display:flex;flex-direction:column;gap:12px;align-items:center}
-
-/* Bandas */
-.pasos .envoltura{padding-block:56px;display:flex;flex-direction:column;gap:22px}
-.pasos h2{font-size:clamp(34px,4.6vw,52px)}
-.pasos ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:14px}
-.pasos li{background:var(--superficie);border:1px solid var(--linea);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:8px}
-.pasos .n{font-family:var(--display);font-stretch:85%;font-weight:900;font-size:40px;color:var(--fucsia);line-height:1}
-.pasos b{font-size:18px}
-.pasos span{color:var(--suave);font-size:15px}
-.tienda .envoltura{padding-block:0 64px}
-.tienda .caja{background:var(--rosa);border-radius:28px;padding:clamp(20px,5vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:28px}
-.tienda h2{font-size:clamp(34px,4.6vw,52px)}
-.datos{display:flex;flex-direction:column;gap:10px;font-size:16px}
-.datos dt{font-size:13px;color:var(--suave);font-weight:600}
-.datos dd{margin:0 0 6px;font-weight:600}
-.pendiente{color:var(--fucsia-texto)}
-.mapa{border:1.5px dashed var(--chip-borde);border-radius:20px;min-height:220px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:var(--suave);background:var(--superficie)}
-.pie-pagina{background:var(--tinta);color:#D6CCD3;font-size:14.5px}
-.pie-cols{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:32px;padding-block:48px 32px}
-@media (max-width:860px){.pie-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 20px}.pie-marca{grid-column:1/-1}}
-.pie-marca img{width:48px;height:48px;margin-bottom:12px}
-.pie-marca p{margin:0 0 14px;max-width:34ch}
-.pie-cols h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#FFFFFF;margin:0 0 12px}
-.pie-cols ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
-.pie-pagina a,.pie-pagina button.link{color:#D6CCD3;text-decoration:none;font-weight:500;background:none;border:0;padding:0;font:inherit;cursor:pointer;text-align:left}
-.pie-pagina a:hover,.pie-pagina button.link:hover{color:#FFFFFF}
-.pie-legal{border-top:1px solid #2E2633;padding-block:18px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;color:#B9AEB6;font-size:13px}
-#redes{display:flex;gap:8px;flex-wrap:wrap}
-#redes a{border:1px solid #3A3140;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
-
-/* Barra WhatsApp en el celular */
-.barra-wa{display:none}
-@media (max-width:860px){
-  .barra-wa{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:var(--superficie);border-top:1px solid var(--linea)}
-  .barra-wa .boton{flex:1}
-  body{padding-bottom:76px}
-}
-
-/* Ficha del producto */
-.hoja{border:0;padding:0;background:transparent;max-width:100vw;max-height:100dvh;width:min(920px,100vw);color:var(--tinta)}
-.hoja::backdrop{background:var(--velo)}
-.hoja-caja{background:var(--superficie);border-radius:26px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);overflow:hidden;max-height:calc(100dvh - 32px)}
-.hoja .foto{border-right:1px solid var(--linea)}
-.hoja-info{padding:26px;display:flex;flex-direction:column;gap:14px;overflow:auto}
-.hoja-info h3{font-size:36px;outline:none}
-.hoja-info .precio{font-size:34px}
-.tallas-ficha{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(64px,100%),1fr));gap:8px}
-.tallas-ficha .talla{width:100%}
-.tallas-ficha .talla:disabled{background:var(--agotado);border-color:var(--agotado);color:var(--tenue);text-decoration:line-through;cursor:not-allowed}
-.mensaje{background:var(--fondo);border:1px solid var(--linea);border-radius:14px;padding:12px 14px;font-size:14px;color:var(--suave)}
-.cerrar{position:absolute;right:14px;top:14px}
-.ficha-acciones{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.ficha-acciones #h-wa{flex:1 1 220px}
-.copiar{min-height:48px;padding:0 18px;font-size:15px}
-.aviso{font-size:13px;color:var(--suave);min-height:1em}
-
-@media (max-width:760px){
-  .hoja{margin:auto 0 0;width:100vw}
-  .hoja-caja{grid-template-columns:minmax(0,1fr);border-radius:26px 26px 0 0;max-height:92dvh;overflow:auto}
-  .hoja .foto{border-right:0;border-bottom:1px solid var(--linea);aspect-ratio:4/3}
-  .hoja-info{overflow:visible;padding-bottom:calc(22px + env(safe-area-inset-bottom,0px))}
-  #h-wa{position:sticky;bottom:calc(12px + env(safe-area-inset-bottom,0px));box-shadow:var(--sombra)}
-}
-[hidden]{display:none!important}
-.seccion{padding-block:56px}
-.cabeza-seccion{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
-.cabeza-seccion h2{font-size:clamp(34px,4.6vw,52px)}
-.cabeza-seccion p{margin:6px 0 0;color:var(--suave);max-width:52ch}
-.enlace-flecha{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--tinta);text-decoration:none;border-bottom:2px solid var(--fucsia);padding-bottom:2px;background:none;border-top:0;border-left:0;border-right:0;font-size:15px;cursor:pointer;font-family:var(--texto)}
-.enlace-flecha:hover{color:var(--fucsia-texto)}
-
-/* Barra de anuncio */
-.anuncio{background:var(--anuncio-fondo);color:var(--anuncio-texto);font-size:13.5px;font-weight:600}
-.anuncio .envoltura{display:flex;justify-content:center;gap:10px 34px;flex-wrap:wrap;padding-block:8px}
-.anuncio span{display:inline-flex;align-items:center;gap:8px}
-.anuncio svg{color:var(--anuncio-icono)}
-@media (max-width:760px){.anuncio span:not(:first-child){display:none}}
-.cabecera{transition:box-shadow .25s}
-.cabecera.con-sombra{box-shadow:0 6px 24px rgba(20,16,23,.08)}
-
-/* Portada: sello de originalidad */
-.pastilla{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--fucsia);color:var(--fucsia-texto);border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px;margin-bottom:18px}
-
-/* Beneficios */
-.beneficios{border-bottom:1px solid var(--linea);background:var(--superficie)}
-.beneficios ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.beneficios li{display:flex;gap:14px;align-items:flex-start;padding:22px 18px;min-width:0}
-.beneficios li+li{border-left:1px solid var(--linea)}
-.beneficios .ic{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:var(--rosa);color:var(--fucsia-texto);display:flex;align-items:center;justify-content:center}
-.beneficios b{display:block;font-size:15.5px}
-.beneficios span{color:var(--suave);font-size:14px;line-height:1.4}
-@media (max-width:980px){.beneficios ul{grid-template-columns:repeat(2,minmax(0,1fr))}.beneficios li:nth-child(3){border-left:0}.beneficios li:nth-child(n+3){border-top:1px solid var(--linea)}}
-@media (max-width:520px){.beneficios ul{grid-template-columns:minmax(0,1fr)}.beneficios li+li{border-left:0;border-top:1px solid var(--linea)}.beneficios li{padding:16px 4px}}
-
-/* Categorías */
-.categorias-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-@media (max-width:860px){.categorias-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
-.cat-tile{position:relative;border:1px solid var(--linea);border-radius:22px;background:var(--superficie);overflow:hidden;cursor:pointer;padding:0;text-align:left;color:var(--tinta);font:inherit;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .25s,transform .25s var(--ease)}
-.cat-tile:hover{border-color:var(--chip-borde);box-shadow:var(--sombra);transform:translateY(-3px)}
-.cat-foto{position:relative;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:var(--rosa);overflow:hidden}
-.cat-foto::before{content:"";position:absolute;width:74%;aspect-ratio:1;border-radius:50%;background:#FFFFFF}
-.cat-foto img{position:relative;width:78%;height:auto;transform:rotate(-8deg);transition:transform .45s var(--ease);clip-path:circle(47%)}
-.cat-tile:hover .cat-foto img{transform:rotate(-14deg) scale(1.06)}
-.cat-texto{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:14px 16px}
-.cat-texto b{font-family:var(--display);font-style:italic;font-stretch:72%;font-weight:900;font-size:28px;text-transform:uppercase;line-height:1}
-.cat-texto span{color:var(--tenue);font-size:13.5px;font-weight:600}
-@media (max-width:520px){.cat-texto{flex-direction:column;align-items:flex-start;gap:2px;padding:12px}.cat-texto b{font-size:24px}}
-
-/* Riel de recién llegadas */
-.riel-envoltura{position:relative}
-.riel{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(232px,252px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:2px;padding:4px 2px 14px;scrollbar-width:thin}
-.riel>*{scroll-snap-align:start}
-@media (max-width:520px){.riel{grid-auto-columns:68%;gap:10px}}
-.riel-flechas{display:flex;gap:8px}
-@media (max-width:860px){.riel-flechas{display:none}}
 
 /* Franja de marcas: dos cintas en sentido contrario (nombres en texto; logos oficiales solo con archivo propio, ver MARCAS) */
 .marcas{--negro:#0E0C10;background:var(--negro);border-block:1px solid #26212A;overflow:hidden;position:relative;padding-block:18px;display:flex;flex-direction:column;gap:6px}
@@ -352,41 +590,24 @@ select{height:44px;border-radius:12px;border:1.5px solid var(--chip-borde);backg
 @keyframes cintaDer{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 @keyframes titilaSep{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(.7) rotate(45deg)}}
 
-/* Preguntas frecuentes */
-.faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px;align-items:start}
-@media (max-width:860px){.faq{grid-template-columns:minmax(0,1fr)}}
-.faq h2{font-size:clamp(34px,4.6vw,52px)}
-.faq-intro p{color:var(--suave);margin:12px 0 18px;max-width:40ch}
-.faq-lista{display:flex;flex-direction:column;gap:10px}
-.faq details{background:var(--superficie);border:1px solid var(--linea);border-radius:16px;padding:0 18px}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;font-weight:700;font-size:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary svg{flex:0 0 auto;transition:transform .25s var(--ease);color:var(--fucsia-texto)}
-.faq details[open] summary svg{transform:rotate(45deg)}
-.faq details p{margin:0 0 16px;color:var(--suave)}
 
-/* WhatsApp flotante (computador) */
-.wa-flotante{position:fixed;right:max(24px,env(safe-area-inset-right,0px));bottom:24px;z-index:44;width:60px;height:60px;border-radius:50%;background:var(--fucsia);color:#FFFFFF;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(224,24,108,.35);transition:transform .25s var(--ease),opacity .25s;opacity:0;transform:translateY(16px) scale(.9);pointer-events:none}
-.wa-flotante.ver{opacity:1;transform:none;pointer-events:auto}
-.wa-flotante:hover{transform:scale(1.06)}
-@media (max-width:860px){.wa-flotante{display:none}}
-.solo-lector{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 </style>
 </head>
 <body>
 
 <a class="saltar" href="#catalogo">Saltar al catálogo</a>
 <div class="anuncio" role="note">
-  <div class="envoltura">
-    <span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Productos 100% originales</span>
-    <span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>Te apartamos tu talla por WhatsApp</span>
+  <div class="envoltura" id="anuncio">
+    <span class="on"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>Productos 100% originales</span>
+    <span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.6 19z"/><path d="M9 10.5c.4 1.6 1.9 3.1 3.5 3.5l1.2-1.1 1.8.8-.3 1.6c-3.4.2-7.2-3.6-7-7l1.6-.3.8 1.8z" fill="currentColor" stroke="none"/></svg>Te apartamos tu talla por WhatsApp</span>
     <span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h4"/></svg>Transferencia, débito o crédito</span>
   </div>
 </div>
-<header class="cabecera">
+<header class="cabecera" id="cabecera">
   <div class="envoltura">
-    <a class="marca-inicio jugar" id="marca-inicio" href="#inicio" aria-label="Tienda Sport Glam, inicio">
-      <svg class="logo-svg" viewBox="0 0 613 442" aria-hidden="true" focusable="false">
+    <div class="cab-fila">
+      <a class="marca-inicio jugar" id="marca-inicio" href="#inicio" aria-label="Tienda Sport Glam, inicio">
+        <svg class="logo-svg" viewBox="0 0 613 442" aria-hidden="true" focusable="false">
 <defs><path id="GLAMDc" transform="translate(19.44 395.41)" d="M44.88 2.54L44.88 2.54Q26.25 2.54 16.40-9.42Q6.56-21.38 6.56-45.72L6.56-45.72Q6.56-52.07 7.30-59.48Q8.04-66.89 9.53-74.93L9.53-74.93Q14.18-101.60 22.65-117.69Q31.12-133.78 43.82-140.98Q56.52-148.17 73.24-148.17L73.24-148.17Q83.82-148.17 91.76-145.74Q99.70-143.30 104.99-138.54Q110.28-133.78 112.93-126.58Q115.57-119.39 115.57-109.86L115.57-109.86Q115.57-106.05 115.15-101.82Q114.73-97.58 113.88-92.93L113.88-92.93L76.63-92.93Q77.26-95.89 77.58-98.75Q77.90-101.60 77.90-104.14L77.90-104.14Q77.90-106.47 77.47-108.48Q77.05-110.49 75.99-111.98Q74.93-113.46 73.13-114.20Q71.33-114.94 68.58-114.94L68.58-114.94Q64.56-114.94 61.70-113.25Q58.85-111.55 56.94-108.27Q55.04-104.99 53.77-99.91Q52.50-94.83 51.23-88.06L51.23-88.06Q48.69-74.09 47.31-65.62Q45.93-57.15 45.19-52.50Q44.45-47.84 44.24-45.51Q44.03-43.18 44.03-41.70L44.03-41.70Q44.03-37.89 44.98-35.46Q45.93-33.02 48.16-31.86Q50.38-30.69 53.98-30.69L53.98-30.69Q59.06-30.69 62.23-33.55Q65.41-36.41 67.31-40.96Q69.22-45.51 70.06-50.59L70.06-50.59L70.28-51.65L56.09-51.65L61.39-81.28L111.98-81.28L97.58 0L77.90 0L77.90-13.55Q74.72-9.10 70.17-5.50Q65.62-1.91 59.48 0.32Q53.34 2.54 44.88 2.54ZM196.65 0L116.00 0L141.40-145.63L180.14-145.63L160.45-33.44L202.57-33.44L196.65 0ZM241.73 0L202.15 0L256.55-145.63L311.37-145.63L311.37 0L272.00 0L273.27-21.38L248.30-21.38L241.73 0ZM270.31-91.23L258.46-53.55L275.39-53.55L277.72-91.02Q277.93-93.35 278.14-96.21Q278.35-99.06 278.46-102.24Q278.57-105.41 278.78-108.38Q278.99-111.34 279.20-113.67L279.20-113.67L277.30-113.67Q276.45-110.49 275.07-106.26Q273.70-102.03 272.43-98.01Q271.16-93.98 270.31-91.23L270.31-91.23ZM360.27 0L323.86 0L349.26-145.63L402.40-145.63L400.91-83.61Q400.91-81.50 400.81-77.47Q400.70-73.45 400.70-68.79Q400.70-64.14 400.49-60.33L400.49-60.33L401.97-60.33Q402.82-63.50 404.09-67.74Q405.36-71.97 406.73-76.20Q408.11-80.44 409.17-83.82L409.17-83.82L428.85-145.63L481.56-145.63L455.95 0L419.54 0L426.95-41.91Q428.85-53.34 430.87-62.87Q432.88-72.39 434.57-79.27Q436.26-86.15 436.69-89.12L436.69-89.12L434.78-89.12Q433.93-86.58 432.88-83.08Q431.82-79.59 430.76-76.41Q429.70-73.24 428.85-71.12L428.85-71.12L404.94 0L374.67 0L375.72-71.12Q375.72-74.30 375.83-79.91Q375.94-85.52 376.15-89.12L376.15-89.12L374.24-89.12Q373.82-83.82 372.76-75.89Q371.70-67.95 370.43-59.06Q369.16-50.17 367.68-41.91L367.68-41.91L360.27 0Z"/><clipPath id="clipGlamc"><use href="#GLAMDc"/></clipPath>
 <linearGradient id="brilloc" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
 <g class="a-tienda"><path class="f-tinta" transform="translate(73.28 64.64)" d="M15.78 0L9.66 0L9.66-15.72L0.72-15.72L0.72-20.64L24.72-20.64L24.72-15.72L15.78-15.72L15.78 0ZM50.58 0L44.49 0L44.49-20.64L50.58-20.64L50.58 0ZM93.90 0L72.18 0L72.18-20.64L93.66-20.64L93.66-16.11L78.30-16.11L78.30-12.63L91.74-12.63L91.74-8.25L78.30-8.25L78.30-4.53L93.90-4.53L93.90 0ZM120.33 0L114.57 0L114.57-20.64L120.03-20.64L130.71-11.01Q130.98-10.77 131.41-10.35Q131.85-9.93 132.31-9.48Q132.78-9.03 133.11-8.64L133.11-8.64L133.38-8.64Q133.38-9.18 133.37-9.99Q133.35-10.80 133.35-11.43L133.35-11.43L133.35-20.64L139.11-20.64L139.11 0L133.74 0L123.30-9.42Q122.58-10.05 121.80-10.83Q121.02-11.61 120.54-12.06L120.54-12.06L120.30-12.06Q120.30-11.67 120.31-10.80Q120.33-9.93 120.33-8.94L120.33-8.94L120.33 0ZM172.23 0L160.71 0L160.71-20.64L172.23-20.64Q176.04-20.64 178.80-19.44Q181.56-18.24 183.03-15.93Q184.50-13.62 184.50-10.32L184.50-10.32Q184.50-6.99 183.03-4.69Q181.56-2.40 178.80-1.20Q176.04 0 172.23 0L172.23 0ZM166.80-16.11L166.80-4.53L171.87-4.53Q173.31-4.53 174.47-4.91Q175.62-5.28 176.46-5.97Q177.30-6.66 177.76-7.68Q178.23-8.70 178.23-9.99L178.23-9.99L178.23-10.68Q178.23-11.97 177.76-12.97Q177.30-13.98 176.46-14.67Q175.62-15.36 174.47-15.73Q173.31-16.11 171.87-16.11L171.87-16.11L166.80-16.11ZM208.20 0L201.90 0L212.04-20.64L218.85-20.64L228.99 0L222.36 0L220.80-3.30L209.76-3.30L208.20 0ZM213.66-11.97L211.80-7.77L218.76-7.77L216.90-11.97Q216.78-12.24 216.57-12.76Q216.36-13.29 216.12-13.88Q215.88-14.46 215.70-14.96Q215.52-15.45 215.40-15.69L215.40-15.69L215.19-15.69Q214.98-15.15 214.68-14.43Q214.38-13.71 214.13-13.05Q213.87-12.39 213.66-11.97L213.66-11.97Z"/></g>
@@ -396,49 +617,52 @@ select{height:44px;border-radius:12px;border:1.5px solid var(--chip-borde);backg
 <g class="a-destello"><circle cx="491" cy="253" r="40" class="anillo"/></g>
 <g class="a-estrella"><g class="a-titila"><path class="s-estrella" d="M491.0000000000001 213.24C497.4000000000001 246.84 497.4000000000001 246.84 531.0000000000001 253.24C497.4000000000001 259.64 497.4000000000001 259.64 491.0000000000001 293.24C484.60000000000014 259.64 484.60000000000014 259.64 451.0000000000001 253.24C484.60000000000014 246.84 484.60000000000014 246.84 491.0000000000001 213.24Z" fill="none" stroke-width="11.2" stroke-linejoin="round"/><path class="f-glam" d="M491.0000000000001 213.24C497.4000000000001 246.84 497.4000000000001 246.84 531.0000000000001 253.24C497.4000000000001 259.64 497.4000000000001 259.64 491.0000000000001 293.24C484.60000000000014 259.64 484.60000000000014 259.64 451.0000000000001 253.24C484.60000000000014 246.84 484.60000000000014 246.84 491.0000000000001 213.24Z"/></g></g>
 </svg>
-    </a>
-    <nav class="menu" aria-label="Secciones">
+      </a>
+      <nav class="menu" aria-label="Categorías">
+        <a href="#catalogo" data-cat="nuevos">Novedades</a>
+        <a href="#catalogo" data-cat="mujer">Mujer</a>
+        <a href="#catalogo" data-cat="ninos">Niños</a>
+        <a href="#catalogo" data-cat="running">Running</a>
+        <a href="#catalogo" data-cat="urbanas">Urbanas</a>
+        <a href="#tienda">Tienda</a>
+      </nav>
+      <div class="cab-iconos">
+        <button class="icono-btn" id="abrir-buscador" type="button" aria-label="Buscar zapatillas"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></button>
+        <button class="icono-btn" id="ver-favs" type="button" aria-label="Ver favoritos"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 7.9 3.6 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.6 3.4 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg><span class="contador" id="n-favs" hidden>0</span></button>
+        <button class="icono-btn" id="abrir-bolsa" type="button" aria-label="Abrir bolsa de pedido"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12.5H6z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg><span class="contador" id="n-bolsa" hidden>0</span></button>
+        <button class="icono-btn solo-pc" id="tema" type="button" aria-label="Cambiar entre tema claro y oscuro"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+      </div>
+    </div>
+    <nav class="nav-movil" aria-label="Categorías">
+      <a href="#catalogo" data-cat="nuevos">Novedades</a>
       <a href="#catalogo" data-cat="mujer">Mujer</a>
       <a href="#catalogo" data-cat="ninos">Niños</a>
       <a href="#catalogo" data-cat="running">Running</a>
       <a href="#catalogo" data-cat="urbanas">Urbanas</a>
-      <a href="#tienda">Visítanos</a>
+      <a href="#tu-talla">Mi talla</a>
+      <a href="#tienda">Tienda</a>
     </nav>
-    <button class="icono-btn" id="tema" type="button" aria-label="Cambiar entre tema claro y oscuro">
-      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
-    </button>
-    <a class="boton boton-fucsia cab-wa" href="#" data-wa="general">WhatsApp</a>
   </div>
 </header>
 
 <main id="inicio">
-  <section class="portada" aria-labelledby="portada-titulo">
+  <section class="banners" aria-roledescription="carrusel" aria-label="Destacados">
     <div class="envoltura">
-      <div>
-        <span class="pastilla"><svg aria-hidden="true" viewBox="0 0 64 64" width="18" height="18"><path d="M32 2l6 24 24 6-24 6-6 24-6-24-24-6 24-6z" fill="currentColor"/></svg>100% originales</span>
-        <h1 class="titulo" id="portada-titulo">Zapatillas originales en tu talla</h1>
-        <p>Puma, Adidas, Nike, Skechers y más. Elige tu número, mira lo que hay en bodega y te la apartamos por WhatsApp.</p>
-        <div class="acciones">
-          <a class="boton boton-tinta" href="#catalogo">Ver catálogo</a>
-          <a class="boton boton-borde" href="#filtros" id="ir-talla">Buscar mi talla</a>
+      <div class="carril" id="carril">
+        <div id="slides"></div>
+        <div class="controles-banner" id="ctrl-banner">
+          <div class="barras" id="barras" role="group" aria-label="Elegir destacado"></div>
+          <span class="contador-slide" id="contador-slide" aria-hidden="true">01 / 04</span>
         </div>
-        <div class="cifras" aria-label="La tienda en números">
-          <span><b id="c-modelos">580</b>modelos</span>
-          <span><b id="c-pares">1.586</b>pares en bodega</span>
-          <span><b id="c-tallas">21 a 46</b>tallas</span>
+        <div class="flechas-banner">
+          <button type="button" id="ant-banner" aria-label="Destacado anterior"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button type="button" id="sig-banner" aria-label="Destacado siguiente"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
         </div>
-      </div>
-      <div class="escena">
-        <div class="disco"></div>
-        <svg class="destello" aria-hidden="true" viewBox="0 0 64 64"><path d="M32 2l6 24 24 6-24 6-6 24-6-24-24-6 24-6z" fill="currentColor"></path></svg>
-        <div class="zapa"><img src="fotos/adidas-jp9998.jpg" alt="Adidas Campus 00s blanca con tiras negras" width="520" height="520" fetchpriority="high"></div>
-        <a class="etiqueta" href="#zapatilla-adidas-jp9998" data-abrir="adidas-jp9998" hidden><span id="et-nombre">Adidas Campus 00s</span><b class="precio" id="et-precio"></b></a>
-        <div class="puntos" id="puntos" role="group" aria-label="Elegir zapatilla destacada" hidden></div>
       </div>
     </div>
   </section>
 
-  <section class="marcas" aria-label="Marcas que vendemos">
+  <section class="marcas" aria-label="Marcas que vendemos" style="margin-top:28px">
     <div class="cinta cinta-llena" id="cinta-marcas"></div>
     <div class="cinta cinta-borde" id="cinta-marcas-2" aria-hidden="true"></div>
   </section>
@@ -446,9 +670,9 @@ select{height:44px;border-radius:12px;border:1.5px solid var(--chip-borde);backg
   <section class="beneficios" aria-label="Por qué comprar en Tienda Sport Glam">
     <div class="envoltura">
       <ul>
-        <li><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>100% originales</b><span>Todas nuestras zapatillas son originales.</span></div></li>
-        <li><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg></span><div><b>Tu talla apartada</b><span>Elige tu número y te la guardamos por WhatsApp.</span></div></li>
-        <li><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5l9-4.5 9 4.5-9 4.5z"/><path d="M3 7.5v9l9 4.5 9-4.5v-9"/><path d="M12 12v9"/></svg></span><div><b>Retiro o envío</b><span>Retira en la tienda o te la enviamos.</span></div></li>
+        <li><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>100% originales</b><span>Todas nuestras zapatillas son originales.</span></div></li>
+        <li><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.6 19z"/><path d="M9 10.5c.4 1.6 1.9 3.1 3.5 3.5l1.2-1.1 1.8.8-.3 1.6c-3.4.2-7.2-3.6-7-7l1.6-.3.8 1.8z" fill="currentColor" stroke="none"/></svg></span><div><b>Tu talla apartada</b><span>Elige tu número y te la guardamos.</span></div></li>
+        <li><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5L12 12l8.5-4.5M12 12v9"/></svg></span><div><b>Retiro o envío</b><span>Retira en la tienda o te la enviamos.</span></div></li>
         <li><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h4"/></svg></span><div><b>Paga como quieras</b><span>Transferencia, débito o crédito.</span></div></li>
       </ul>
     </div>
@@ -456,22 +680,51 @@ select{height:44px;border-radius:12px;border:1.5px solid var(--chip-borde);backg
 
   <section class="seccion" aria-labelledby="cats-titulo">
     <div class="envoltura">
-      <div class="cabeza-seccion"><div><h2 class="titulo" id="cats-titulo">Compra por categoría</h2></div></div>
-      <div class="categorias-grid" id="cats"></div>
+      <div class="cabeza-seccion">
+        <div><span class="ceja"><svg class="destello-mini" aria-hidden="true" viewBox="0 0 64 64" width="12" height="12"><path d="M32 2l6 24 24 6-24 6-6 24-6-24-24-6 24-6z" fill="currentColor"/></svg>Elige tu estilo</span><h2 class="titulo" id="cats-titulo">Compra por categoría</h2></div>
+      </div>
+      <div class="mosaico" id="mosaico"></div>
     </div>
   </section>
 
   <section class="seccion" aria-labelledby="nuevas-titulo" id="nuevas" style="padding-top:0">
     <div class="envoltura">
       <div class="cabeza-seccion">
-        <div><h2 class="titulo" id="nuevas-titulo">Recién llegadas</h2><p>Lo último que entró a la tienda.</p></div>
+        <div><span class="ceja"><svg class="destello-mini" aria-hidden="true" viewBox="0 0 64 64" width="12" height="12"><path d="M32 2l6 24 24 6-24 6-6 24-6-24-24-6 24-6z" fill="currentColor"/></svg>Recién llegadas</span><h2 class="titulo" id="nuevas-titulo">Lo nuevo en la tienda</h2></div>
         <div class="riel-flechas">
-          <button class="icono-btn" type="button" data-riel="-1" aria-label="Ver anteriores"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
-          <button class="icono-btn" type="button" data-riel="1" aria-label="Ver siguientes"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
-          <button class="enlace-flecha" type="button" id="ver-nuevas">Ver todas</button>
+          <button class="icono-btn" type="button" data-riel="riel-nuevas" data-dir="-1" aria-label="Ver anteriores"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="icono-btn" type="button" data-riel="riel-nuevas" data-dir="1" aria-label="Ver siguientes"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+          <button class="enlace-flecha" type="button" data-ir-cat="nuevos">Ver todas</button>
         </div>
       </div>
-      <div class="riel-envoltura"><div class="riel" id="riel" role="list"></div></div>
+      <div class="riel" id="riel-nuevas" role="list"></div>
+    </div>
+  </section>
+
+  <section class="oscura seccion" aria-labelledby="ultimos-titulo" id="ultimos">
+    <div class="envoltura" style="position:relative">
+      <div class="cabeza-seccion">
+        <div><span class="ceja"><svg class="destello-mini" aria-hidden="true" viewBox="0 0 64 64" width="12" height="12"><path d="M32 2l6 24 24 6-24 6-6 24-6-24-24-6 24-6z" fill="currentColor"/></svg>Cuando se van, se van</span><h2 class="titulo" id="ultimos-titulo">Últimos pares</h2><p>Modelos con un solo par en la tienda. Si es tu talla, pídela antes de que se vaya.</p></div>
+        <div class="riel-flechas">
+          <button class="icono-btn" type="button" data-riel="riel-ultimos" data-dir="-1" aria-label="Ver anteriores"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="icono-btn" type="button" data-riel="riel-ultimos" data-dir="1" aria-label="Ver siguientes"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <div class="riel" id="riel-ultimos" role="list"></div>
+    </div>
+  </section>
+
+  <section class="seccion tu-talla" id="tu-talla" aria-labelledby="talla-titulo">
+    <div class="envoltura">
+      <div class="caja">
+        <div>
+          <span class="ceja"><svg class="destello-mini" aria-hidden="true" viewBox="0 0 64 64" width="12" height="12"><path d="M32 2l6 24 24 6-24 6-6 24-6-24-24-6 24-6z" fill="currentColor"/></svg>En segundos</span>
+          <h2 class="titulo" id="talla-titulo">¿Cuál es tu talla?</h2>
+          <p>Toca tu número y te mostramos solo las zapatillas que tenemos en esa talla.</p>
+          <p style="margin-top:10px"><button class="link" type="button" data-guia>¿No sabes tu talla? Mira la guía</button></p>
+        </div>
+        <div class="grilla-tallas" id="grilla-tallas" role="group" aria-label="Elegir tu talla"></div>
+      </div>
     </div>
   </section>
 
@@ -481,23 +734,34 @@ select{height:44px;border-radius:12px;border:1.5px solid var(--chip-borde);backg
       <div class="controles">
         <div class="fila" role="group" aria-label="Tipo" id="categorias">
           <button class="pildora" type="button" data-cat="todas" aria-pressed="true">Todas</button>
-          <button class="pildora" type="button" data-cat="ninos" aria-pressed="false">Niños</button>
+          <button class="pildora" type="button" data-cat="nuevos" aria-pressed="false">Novedades</button>
           <button class="pildora" type="button" data-cat="mujer" aria-pressed="false">Mujer</button>
+          <button class="pildora" type="button" data-cat="ninos" aria-pressed="false">Niños</button>
           <button class="pildora" type="button" data-cat="urbanas" aria-pressed="false">Urbanas</button>
           <button class="pildora" type="button" data-cat="running" aria-pressed="false">Running</button>
           <button class="pildora" type="button" data-cat="basquetbol" aria-pressed="false">Básquetbol</button>
-          <button class="pildora" type="button" data-cat="nuevos" aria-pressed="false">Recién llegadas</button>
+          <button class="pildora" type="button" data-cat="ultimos" aria-pressed="false">Últimos pares</button>
+          <button class="pildora" type="button" data-cat="favoritos" aria-pressed="false"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 7.9 3.6 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.6 3.4 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg>Favoritos</button>
         </div>
         <label class="buscar" for="buscar">
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>
           <span class="solo-lector">Buscar modelo</span>
           <input id="buscar" type="search" placeholder="Busca modelo, marca o color" autocomplete="off">
         </label>
         <label class="solo-lector" for="marca">Marca</label>
-        <select id="marca"><option value="">Todas las marcas</option></select>
+        <select id="marca"><option value="">Marca</option></select>
+        <label class="solo-lector" for="rango">Precio</label>
+        <select id="rango">
+          <option value="">Precio</option>
+          <option value="0-30000">Hasta $30.000</option>
+          <option value="30000-50000">$30.000 a $50.000</option>
+          <option value="50000-70000">$50.000 a $70.000</option>
+          <option value="70000-9999999">Más de $70.000</option>
+        </select>
         <label class="solo-lector" for="orden">Ordenar</label>
         <select id="orden">
-          <option value="stock">Más tallas primero</option>
+          <option value="stock">Ordenar</option>
+          <option value="nuevos">Novedades primero</option>
           <option value="menor">Menor precio</option>
           <option value="mayor">Mayor precio</option>
         </select>
@@ -516,45 +780,56 @@ select{height:44px;border-radius:12px;border:1.5px solid var(--chip-borde);backg
     </div>
   </section>
 
-  <section class="pasos" aria-labelledby="pasos-titulo">
+  <section class="seccion pasos" aria-labelledby="pasos-titulo" style="padding-top:0">
     <div class="envoltura">
-      <h2 class="titulo" id="pasos-titulo">Así se compra</h2>
+      <div class="cabeza-seccion"><div><span class="ceja"><svg class="destello-mini" aria-hidden="true" viewBox="0 0 64 64" width="12" height="12"><path d="M32 2l6 24 24 6-24 6-6 24-6-24-24-6 24-6z" fill="currentColor"/></svg>Simple y rápido</span><h2 class="titulo" id="pasos-titulo">Así se compra</h2></div></div>
       <ol>
-        <li><span class="n">1</span><b>Elige el modelo y tu talla</b><span>La web muestra solo lo que hay en bodega, con su precio.</span></li>
-        <li><span class="n">2</span><b>Pídela por WhatsApp</b><span>El mensaje sale listo con el modelo y la talla. Te confirmamos al tiro.</span></li>
-        <li><span class="n">3</span><b>Retira en tienda o te la enviamos</b><span>Pagas con transferencia, débito o crédito.</span></li>
+        <li><span class="n">1</span><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></span><b>Elige modelo y talla</b><span>La web muestra solo lo que hay en la tienda, con su precio.</span></li>
+        <li><span class="n">2</span><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12.5H6z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg></span><b>Agrégalas a tu bolsa</b><span>Junta todos los pares que quieras y envía un solo pedido por WhatsApp.</span></li>
+        <li><span class="n">3</span><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5L12 12l8.5-4.5M12 12v9"/></svg></span><b>Retira o te la enviamos</b><span>Te confirmamos al tiro. Pagas con transferencia, débito o crédito.</span></li>
       </ol>
+    </div>
+  </section>
+
+  <section class="seccion novedades" aria-labelledby="nov-titulo" style="padding-top:0">
+    <div class="envoltura">
+      <div class="caja">
+        <div><h2 class="titulo" id="nov-titulo">Sé el primero en saber</h2><p>Avísanos por WhatsApp y te contamos cuando lleguen modelos nuevos en tu talla.</p></div>
+        <a class="boton boton-fucsia" href="#" data-wa="novedades"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.6 19z"/><path d="M9 10.5c.4 1.6 1.9 3.1 3.5 3.5l1.2-1.1 1.8.8-.3 1.6c-3.4.2-7.2-3.6-7-7l1.6-.3.8 1.8z" fill="currentColor" stroke="none"/></svg>Quiero recibir novedades</a>
+      </div>
     </div>
   </section>
 
   <section class="seccion" id="preguntas" aria-labelledby="faq-titulo" style="padding-top:0">
     <div class="envoltura faq">
       <div class="faq-intro">
+        <span class="ceja"><svg class="destello-mini" aria-hidden="true" viewBox="0 0 64 64" width="12" height="12"><path d="M32 2l6 24 24 6-24 6-6 24-6-24-24-6 24-6z" fill="currentColor"/></svg>Ayuda</span>
         <h2 class="titulo" id="faq-titulo">Preguntas frecuentes</h2>
         <p>¿Tienes otra duda? Escríbenos y te respondemos por WhatsApp.</p>
         <a class="boton boton-tinta" href="#" data-wa="general">Hacer una pregunta</a>
       </div>
       <div class="faq-lista">
         <details><summary>¿Las zapatillas son originales?<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></summary><p>Sí. Todo lo que vendemos es 100% original: Puma, Adidas, Nike, Skechers, Vans y las demás marcas del catálogo.</p></details>
-        <details><summary>¿Cómo sé si tienen mi talla?<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></summary><p>Toca tu número en la barra de tallas y la web te muestra solo los modelos que tienen esa talla en la tienda. En cada ficha ves las tallas disponibles.</p></details>
-        <details><summary>¿Cómo compro?<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></summary><p>Elige el modelo y tu talla, y toca "Pedir por WhatsApp". El mensaje sale listo con el modelo, la talla y el precio; nosotros te confirmamos y te la apartamos.</p></details>
+        <details><summary>¿Cómo sé si tienen mi talla?<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></summary><p>Toca tu número en "¿Cuál es tu talla?" o en la barra de tallas y la web te muestra solo los modelos que tienen esa talla en la tienda.</p></details>
+        <details><summary>¿Cómo compro?<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></summary><p>Elige el modelo y tu talla, agrégalo a tu bolsa y toca "Enviar pedido por WhatsApp". El mensaje sale listo con todo; nosotros te confirmamos y te lo apartamos.</p></details>
         <details><summary>¿Cómo puedo pagar?<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></summary><p>Con transferencia, tarjeta de débito o tarjeta de crédito.</p></details>
         <details><summary>¿Hacen envíos?<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></summary><p>Sí. Escríbenos por WhatsApp con tu ciudad y te decimos el costo y el plazo. También puedes retirar en la tienda.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="tienda" id="tienda" aria-labelledby="tienda-titulo">
+  <section class="tienda seccion" id="tienda" aria-labelledby="tienda-titulo" style="padding-top:0">
     <div class="envoltura">
       <div class="caja">
         <div class="datos">
+          <span class="ceja"><svg class="destello-mini" aria-hidden="true" viewBox="0 0 64 64" width="12" height="12"><path d="M32 2l6 24 24 6-24 6-6 24-6-24-24-6 24-6z" fill="currentColor"/></svg>Te esperamos</span>
           <h2 class="titulo" id="tienda-titulo">Visítanos</h2>
           <dl>
             <dt>Dirección</dt><dd id="d-direccion" class="pendiente">Falta la dirección</dd>
             <dt>Horario</dt><dd id="d-horario" class="pendiente">Falta el horario</dd>
             <dt>WhatsApp</dt><dd id="d-wa" class="pendiente">Falta el número</dd>
           </dl>
-          <div class="acciones"><a class="boton boton-fucsia" href="#" data-wa="general">Escribir por WhatsApp</a></div>
+          <a class="boton boton-fucsia" href="#" data-wa="general"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.6 19z"/><path d="M9 10.5c.4 1.6 1.9 3.1 3.5 3.5l1.2-1.1 1.8.8-.3 1.6c-3.4.2-7.2-3.6-7-7l1.6-.3.8 1.8z" fill="currentColor" stroke="none"/></svg>Escribir por WhatsApp</a>
         </div>
         <div class="mapa" id="mapa">Aquí va el enlace a Google Maps de la tienda</div>
       </div>
@@ -566,17 +841,17 @@ select{height:44px;border-radius:12px;border:1.5px solid var(--chip-borde);backg
   <div class="envoltura">
     <div class="pie-cols">
       <div class="pie-marca">
-        <img src="icono.svg" alt="" width="48" height="48">
+        <img src="icono.svg" alt="" width="52" height="52">
         <p>Zapatillas originales en tu talla. Puma, Adidas, Nike, Skechers y más.</p>
         <nav id="redes" aria-label="Redes sociales"></nav>
       </div>
       <div><h3>Comprar</h3><ul>
-        <li><a href="#catalogo" data-cat="mujer">Mujer</a></li><li><a href="#catalogo" data-cat="ninos">Niños</a></li>
-        <li><a href="#catalogo" data-cat="running">Running</a></li><li><a href="#catalogo" data-cat="urbanas">Urbanas</a></li>
-        <li><a href="#catalogo" data-cat="nuevos">Recién llegadas</a></li></ul></div>
+        <li><a href="#catalogo" data-cat="nuevos">Novedades</a></li><li><a href="#catalogo" data-cat="mujer">Mujer</a></li>
+        <li><a href="#catalogo" data-cat="ninos">Niños</a></li><li><a href="#catalogo" data-cat="running">Running</a></li>
+        <li><a href="#catalogo" data-cat="urbanas">Urbanas</a></li><li><a href="#catalogo" data-cat="ultimos">Últimos pares</a></li></ul></div>
       <div><h3>Ayuda</h3><ul>
-        <li><a href="#pasos-titulo">Cómo comprar</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li>
-        <li><a href="#" data-wa="general">WhatsApp</a></li></ul></div>
+        <li><a href="#pasos-titulo">Cómo comprar</a></li><li><a href="#" data-guia>Guía de tallas</a></li>
+        <li><a href="#preguntas">Preguntas frecuentes</a></li><li><a href="#" data-wa="general">WhatsApp</a></li></ul></div>
       <div><h3>Tienda</h3><ul>
         <li id="pie-direccion">Dirección por confirmar</li><li id="pie-horario">Horario por confirmar</li>
         <li><a href="#tienda">Cómo llegar</a></li></ul></div>
@@ -588,52 +863,96 @@ select{height:44px;border-radius:12px;border:1.5px solid var(--chip-borde);backg
   </div>
 </footer>
 
-<a class="wa-flotante" id="wa-flotante" href="#" data-wa="general" aria-label="Escríbenos por WhatsApp"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
-<div class="barra-wa"><a class="boton boton-fucsia" href="#" data-wa="general">
-  <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>
-  Escríbenos por WhatsApp</a></div>
+<a class="wa-flotante" id="wa-flotante" href="#" data-wa="general" aria-label="Escríbenos por WhatsApp"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.6 19z"/><path d="M9 10.5c.4 1.6 1.9 3.1 3.5 3.5l1.2-1.1 1.8.8-.3 1.6c-3.4.2-7.2-3.6-7-7l1.6-.3.8 1.8z" fill="currentColor" stroke="none"/></svg></a>
+<div class="barra-wa">
+  <a class="boton boton-fucsia" href="#" data-wa="general"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.6 19z"/><path d="M9 10.5c.4 1.6 1.9 3.1 3.5 3.5l1.2-1.1 1.8.8-.3 1.6c-3.4.2-7.2-3.6-7-7l1.6-.3.8 1.8z" fill="currentColor" stroke="none"/></svg>WhatsApp</a>
+  <button class="icono-btn" type="button" data-abrir-bolsa aria-label="Abrir bolsa de pedido"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12.5H6z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg><span class="contador" data-n-bolsa hidden>0</span></button>
+</div>
 
 <dialog class="hoja" id="hoja" aria-labelledby="h-nombre">
   <div class="hoja-caja">
-    <div class="foto"><img id="h-foto" src="" alt=""></div>
+    <button class="icono-btn cerrar" type="button" data-cerrar aria-label="Cerrar ficha"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="escenario" id="h-escenario"><img id="h-foto" src="" alt=""><span class="pista">Toca para ampliar</span></div>
     <div class="hoja-info">
-      <button class="icono-btn cerrar" type="button" id="cerrar" aria-label="Cerrar ficha">
-        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
-      </button>
       <span class="marca" id="h-marca"></span>
       <h3 class="titulo" id="h-nombre" tabindex="-1"></h3>
       <span class="color" id="h-color"></span>
-      <b class="precio" id="h-precio"></b>
-      <div><b style="font-size:14px">Elige tu talla</b></div>
+      <div class="precio-fila"><b class="precio" id="h-precio"></b><span class="etq" id="h-etq" hidden></span></div>
+      <div class="tallas-cab"><b id="h-tallas-tit">Elige tu talla</b><button class="link" type="button" data-guia>Guía de tallas</button></div>
       <div class="tallas-ficha" id="h-tallas" role="group" aria-label="Tallas disponibles"></div>
-      <div class="mensaje" id="h-mensaje"></div>
+      <span class="aviso-talla" id="h-aviso-talla" aria-live="polite"></span>
       <div class="ficha-acciones">
-        <a class="boton boton-fucsia" id="h-wa" href="#">Pedir por WhatsApp</a>
-        <button class="boton boton-borde copiar" id="h-copiar" type="button">Copiar enlace</button>
+        <button class="boton boton-tinta" id="h-agregar" type="button"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12.5H6z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg>Agregar a la bolsa</button>
+        <button class="icono-btn fav-ficha" id="h-fav" type="button" aria-pressed="false" aria-label="Guardar en favoritos" style="width:50px;height:50px"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 7.9 3.6 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.6 3.4 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg></button>
+        <a class="boton boton-fucsia ancho" id="h-wa" href="#"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.6 19z"/><path d="M9 10.5c.4 1.6 1.9 3.1 3.5 3.5l1.2-1.1 1.8.8-.3 1.6c-3.4.2-7.2-3.6-7-7l1.6-.3.8 1.8z" fill="currentColor" stroke="none"/></svg>Pedir ahora por WhatsApp</a>
       </div>
-      <span class="aviso" id="h-aviso" aria-live="polite"></span>
+      <div class="ficha-mini">
+        <span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>Original</span><span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5L12 12l8.5-4.5M12 12v9"/></svg>Retiro o envío</span>
+        <button class="link" id="h-copiar" type="button">Copiar enlace</button>
+      </div>
+      <span class="aviso-talla" id="h-aviso" aria-live="polite" style="color:var(--suave)"></span>
+      <div class="relacionados" id="h-rel-caja"><b>También te puede gustar</b><div class="rel-lista" id="h-rel"></div></div>
     </div>
   </div>
 </dialog>
 
+<dialog class="panel" id="bolsa" aria-labelledby="bolsa-titulo">
+  <div class="panel-caja">
+    <div class="panel-cab"><h2 class="titulo" id="bolsa-titulo">Tu bolsa</h2><button class="icono-btn" type="button" data-cerrar aria-label="Cerrar bolsa"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="panel-cuerpo" id="bolsa-lista"></div>
+    <div class="panel-pie" id="bolsa-pie">
+      <div class="total"><span>Total</span><b class="precio" id="bolsa-total">$0</b></div>
+      <a class="boton boton-fucsia" id="bolsa-wa" href="#"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.6 19z"/><path d="M9 10.5c.4 1.6 1.9 3.1 3.5 3.5l1.2-1.1 1.8.8-.3 1.6c-3.4.2-7.2-3.6-7-7l1.6-.3.8 1.8z" fill="currentColor" stroke="none"/></svg>Enviar pedido por WhatsApp</a>
+      <small>Te confirmamos disponibilidad y la forma de pago por WhatsApp. No se cobra nada en la web.</small>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="buscador" id="buscador" aria-label="Buscar zapatillas">
+  <div class="buscador-caja">
+    <div class="buscador-fila">
+      <label class="buscar" for="q-buscador"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><span class="solo-lector">Buscar</span><input id="q-buscador" type="search" placeholder="Nike Court, Puma blanca, Skechers 38…" autocomplete="off" enterkeyhint="search"></label>
+      <button class="icono-btn" type="button" data-cerrar aria-label="Cerrar buscador"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="populares" id="populares"><small>Búsquedas rápidas</small></div>
+    <div class="sugerencias" id="sugerencias" role="listbox" aria-label="Resultados"></div>
+  </div>
+</dialog>
+
+<dialog class="guia" id="guia" aria-labelledby="guia-titulo">
+  <div class="guia-caja">
+    <button class="icono-btn cerrar" type="button" data-cerrar aria-label="Cerrar guía"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h2 class="titulo" id="guia-titulo">Guía de tallas</h2>
+    <p>Pon el pie descalzo sobre una hoja, marca el talón y la punta del dedo más largo y mide en centímetros. Busca esa medida en la tabla.</p>
+    <div class="tabla"><table>
+      <thead><tr><th>Talla Chile</th><th>Largo del pie</th><th>Talla Chile</th><th>Largo del pie</th></tr></thead>
+      <tbody id="guia-filas"></tbody>
+    </table></div>
+    <p><b>Medidas referenciales.</b> Cada marca puede variar medio número. Si estás entre dos tallas, elige la mayor o pregúntanos por WhatsApp.</p>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toast-texto"></span><button type="button" id="toast-btn">Ver bolsa</button></div>
 <noscript><p style="padding:16px;text-align:center">Activa JavaScript para ver el catálogo, o escríbenos por WhatsApp.</p></noscript>
+
 <script>
 /* ===== Configuración de la tienda: completar antes de publicar ===== */
 const TIENDA = {
   whatsapp: "",            // ej: "56912345678" (con 56, sin + ni espacios)
-  direccion: "",           // ej: "Av. Ejemplo 123, local 4, Iquique"
-  horario: "",             // ej: "Lunes a sábado, 10:00 a 20:00"
-  mapa: "",                // enlace de Google Maps
+  direccion: "Los Guindales, Alto Hospicio, Iquique",
+  horario: "Lunes a domingo, 11:00 a 19:00",
+  mapa: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Los Guindales, Alto Hospicio, Tarapacá, Chile"),
+  mapaEmbed: "https://www.google.com/maps?q=" + encodeURIComponent("Los Guindales, Alto Hospicio, Tarapacá, Chile") + "&z=16&output=embed",
   instagram: "", tiktok: "", facebook: ""
 };
+/* Medición (opcional): con estos códigos la web registra visitas, fichas vistas, productos
+   agregados a la bolsa y pedidos enviados por WhatsApp. Dejar vacío para no medir. */
+const MEDICION = { ga4: "", metaPixel: "" };
 /* De dónde salen los productos:
-   "archivo" = catalogo.json (stock exportado del sistema el 16-11-2026, 21:20)
+   "archivo" = catalogo.json (stock exportado del sistema)
    "nube"    = stock en vivo desde la nube de SportPOS (necesita la función catalogo_publico) */
 const DATOS = { fuente: "archivo", nubeUrl: "", nubeClave: "" };
-/* Marcas de la franja. Por defecto se muestran escritas (sin problemas de uso de marca).
-   Para mostrar el logo oficial de una marca: guardar el archivo que entregue la marca o el
-   distribuidor en la carpeta "marcas/" y escribir su nombre en logo, ej: logo: "marcas/puma.svg".
-   Hacerlo SOLO con autorización escrita de la marca o del distribuidor oficial. */
+/* Marcas de la franja. Logos oficiales solo con autorización escrita (ver marcas/LEEME.txt). */
 const MARCAS = [
   { nombre: "Puma", logo: "" }, { nombre: "Adidas", logo: "" }, { nombre: "Nike", logo: "" },
   { nombre: "Skechers", logo: "" }, { nombre: "Vans", logo: "" }, { nombre: "Converse", logo: "" },
@@ -641,17 +960,72 @@ const MARCAS = [
 ];
 
 const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
 const pesos = n => "$" + Math.round(n).toLocaleString("es-CL");
 const norm = s => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+/* "blanca" encuentra "Blanco", "negra" encuentra "Negro", etc. */
+const palabras = q => norm(q).split(/\s+/).filter(Boolean).map(w => w.length >= 4 && /[ao]$/.test(w) ? w.slice(0, -1) : w);
 const tnum = t => { const n = parseFloat(String(t).replace(",", ".")); return isNaN(n) ? 999 : n; };
-let P = [], estado = { talla: "", cat: "todas", marca: "", q: "", orden: "stock", ver: 24 };
+const quieto = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+const suave = () => quieto() ? "auto" : "smooth";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+let P = [], porId = new Map();
+const estado = { talla: "", cat: "todas", marca: "", q: "", orden: "stock", rango: "", ver: 24 };
 
-function guardar(k, v) { try { localStorage.setItem("glam-" + k, v); } catch (e) {} }
-function leer(k) { try { return localStorage.getItem("glam-" + k); } catch (e) { return null; } }
+function guardar(k, v) { try { localStorage.setItem("glam-" + k, typeof v === "string" ? v : JSON.stringify(v)); } catch (e) {} }
+function leer(k, def) { try { const v = localStorage.getItem("glam-" + k); if (v === null) return def; try { return JSON.parse(v); } catch (e) { return v; } } catch (e) { return def; } }
 
-/* Tema */
+/* ---------- Medición ---------- */
+window.dataLayer = window.dataLayer || [];
+function medir(evento, datos) {
+  try {
+    window.dataLayer.push(Object.assign({ event: evento }, datos || {}));
+    if (window.gtag) window.gtag("event", evento, datos || {});
+    if (window.fbq) {
+      const mapa = { view_item: "ViewContent", add_to_cart: "AddToCart", begin_checkout: "InitiateCheckout", search: "Search", add_to_wishlist: "AddToWishlist" };
+      if (mapa[evento]) window.fbq("track", mapa[evento], datos || {});
+    }
+  } catch (e) {}
+}
 (function () {
-  const t = leer("tema"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+  if (MEDICION.ga4) {
+    const s = document.createElement("script"); s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=" + MEDICION.ga4; document.head.appendChild(s);
+    window.gtag = function () { window.dataLayer.push(arguments); }; window.gtag("js", new Date()); window.gtag("config", MEDICION.ga4);
+  }
+  if (MEDICION.metaPixel) {
+    !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    window.fbq("init", MEDICION.metaPixel); window.fbq("track", "PageView");
+  }
+})();
+
+/* ---------- Íconos ---------- */
+const ICO = {
+  corazon: '<path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 7.9 3.6 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.6 3.4 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/>',
+  flecha: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  x: '<path d="M6 6l12 12M18 6L6 18"/>'
+};
+const ico = (n, s) => '<svg aria-hidden="true" width="' + (s || 20) + '" height="' + (s || 20) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + ICO[n] + '</svg>';
+
+/* ---------- Fotos: versión recortada (fotos2/*.webp); si falta, la original con fondo blanco ---------- */
+const EXTRA = {};
+async function cargarExtra() {
+  try {
+    const r = await fetch("fotos-extra.json"); if (!r.ok) return; const d = await r.json();
+    for (const k in d) { const bin = atob(d[k]); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); EXTRA[k] = URL.createObjectURL(new Blob([u], { type: "image/webp" })); }
+  } catch (e) {}
+}
+const foto = id => EXTRA[id] || ("fotos2/" + id + ".webp");
+function img(p, clase, carga) {
+  const i = document.createElement("img");
+  i.alt = ""; i.decoding = "async"; if (carga !== "eager") i.loading = "lazy"; if (clase) i.className = clase;
+  i.width = 800; i.height = 800; i.src = foto(p.id);
+  i.onerror = () => { if (!i.dataset.plana) { i.dataset.plana = "1"; i.classList.add("plana"); i.src = "fotos/" + p.id + ".jpg"; } };
+  return i;
+}
+
+/* ---------- Tema ---------- */
+(function () {
+  const t = leer("tema", ""); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
   $("#tema").addEventListener("click", () => {
     const actual = document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     const nuevo = actual === "dark" ? "light" : "dark";
@@ -659,317 +1033,34 @@ function leer(k) { try { return localStorage.getItem("glam-" + k); } catch (e) {
   });
 })();
 
-/* WhatsApp */
-function enlaceWA(texto) {
-  const num = (TIENDA.whatsapp || "").replace(/\D/g, "");
-  return "https://wa.me/" + num + "?text=" + encodeURIComponent(texto);
-}
-document.querySelectorAll('[data-wa="general"]').forEach(a => { a.href = enlaceWA("Hola, vengo de la web de Tienda Sport Glam y quiero consultar por unas zapatillas."); a.target = "_blank"; a.rel = "noopener"; });
+/* ---------- WhatsApp ---------- */
+function enlaceWA(texto) { return "https://wa.me/" + (TIENDA.whatsapp || "").replace(/\D/g, "") + "?text=" + encodeURIComponent(texto); }
+const MENSAJES = {
+  general: "Hola, vengo de la web de Tienda Sport Glam y quiero consultar por unas zapatillas.",
+  novedades: "Hola, vengo de la web de Tienda Sport Glam. Quiero recibir novedades cuando lleguen modelos nuevos. Mi talla es: "
+};
+$$("[data-wa]").forEach(a => { a.href = enlaceWA(MENSAJES[a.dataset.wa] || MENSAJES.general); a.target = "_blank"; a.rel = "noopener"; a.addEventListener("click", () => medir("contact", { via: "whatsapp", origen: a.dataset.wa })); });
 
-/* Datos de la tienda */
+/* ---------- Datos de la tienda ---------- */
 (function () {
   const pon = (id, v) => { if (v) { const e = $(id); e.textContent = v; e.classList.remove("pendiente"); } };
   pon("#d-direccion", TIENDA.direccion); pon("#d-horario", TIENDA.horario);
   if (TIENDA.whatsapp) pon("#d-wa", "+" + TIENDA.whatsapp.replace(/\D/g, "").replace(/^(\d{2})(\d)(\d{4})(\d{4})$/, "$1 $2 $3 $4"));
-  if (TIENDA.mapa) $("#mapa").innerHTML = '<a class="boton boton-tinta" target="_blank" rel="noopener" href="' + TIENDA.mapa + '">Cómo llegar en Google Maps</a>';
-})();
-
-/* Carga del catálogo */
-const EXTRA = {};
-async function cargarExtra() {
-  try { const r = await fetch("fotos-extra.json"); if (!r.ok) return; const d = await r.json();
-    for (const k in d) { const bin = atob(d[k]); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); EXTRA[k] = URL.createObjectURL(new Blob([u], { type: "image/jpeg" })); }
-  } catch (e) {}
-}
-const foto = id => EXTRA[id] || ("fotos/" + id + ".jpg");
-async function cargar() {
-  if (DATOS.fuente === "nube" && DATOS.nubeUrl && DATOS.nubeClave) {
-    try {
-      const r = await fetch(DATOS.nubeUrl + "/rest/v1/rpc/catalogo_publico", { method: "POST", headers: { apikey: DATOS.nubeClave, Authorization: "Bearer " + DATOS.nubeClave, "Content-Type": "application/json" }, body: "{}" });
-      if (r.ok) return await r.json();
-    } catch (e) { /* si la nube no responde se usa el archivo */ }
-  }
-  if (window.CATALOGO) return window.CATALOGO;
-  const r = await fetch("catalogo.json"); return r.json();
-}
-
-function tallasDe(p) { return Object.keys(p.t).filter(t => p.t[t] > 0).sort((a, b) => tnum(a) - tnum(b)); }
-
-function filtrar() {
-  const q = norm(estado.q);
-  let L = P.filter(p => {
-    if (estado.talla && !(p.t[estado.talla] > 0)) return false;
-    if (estado.marca && p.m !== estado.marca) return false;
-    if (estado.cat === "mujer" && p.g !== "Mujer") return false;
-    if (estado.cat === "nuevos" && !p.r) return false;
-    if (["ninos", "urbanas", "running", "basquetbol"].includes(estado.cat) && p.k !== estado.cat) return false;
-    if (q && !norm(p.m + " " + p.n + " " + p.c).includes(q)) return false;
-    return true;
-  });
-  if (estado.orden === "menor") L.sort((a, b) => a.p - b.p);
-  else if (estado.orden === "mayor") L.sort((a, b) => b.p - a.p);
-  else L.sort((a, b) => (tallasDe(b).length - tallasDe(a).length) || (b.s - a.s));
-  return L;
-}
-
-function tarjeta(p, i) {
-  const ts = tallasDe(p);
-  const sello = p.r ? '<span class="sello">Recién llegada</span>' : (p.s === 1 ? '<span class="sello oscuro">Último par</span>' : "");
-  const tt = !ts.length ? "Consulta tallas" : ts.length === 1 ? "Talla " + ts[0] : ts.length + " tallas: " + ts[0] + " a " + ts[ts.length - 1];
-  const b = document.createElement("button");
-  b.type = "button"; b.className = "tarjeta"; b.style.setProperty("--i", i % 24);
-  b.setAttribute("aria-label", p.m + " " + p.n + ", " + pesos(p.p) + ", " + tt);
-  b.innerHTML = '<div class="foto">' + sello + '<img loading="lazy" decoding="async" src="' + foto(p.id) + '" alt="" width="520" height="520"></div>' +
-    '<div class="info"><span class="marca"></span><span class="nombre"></span><span class="color"></span>' +
-    '<span class="tallas-mini"></span><div class="pie"><b class="precio">' + pesos(p.p) + '</b></div></div>';
-  b.querySelector(".marca").textContent = p.m;
-  b.querySelector(".nombre").textContent = p.n;
-  b.querySelector(".color").textContent = p.c || " ";
-  b.querySelector(".tallas-mini").textContent = tt;
-  b.addEventListener("click", () => abrir(p.id));
-  return b;
-}
-
-function pintar() {
-  const L = filtrar();
-  const g = $("#grilla"); g.innerHTML = "";
-  const titulo = estado.talla ? "Talla " + estado.talla : ({ ninos: "Niños", mujer: "Mujer", urbanas: "Urbanas", running: "Running", basquetbol: "Básquetbol", nuevos: "Recién llegadas" }[estado.cat] || "Todo el catálogo");
-  $("#cat-titulo").textContent = titulo;
-  const pares = L.reduce((s, p) => s + (estado.talla ? (p.t[estado.talla] || 0) : p.s), 0);
-  $("#cat-cuenta").textContent = L.length + (L.length === 1 ? " modelo · " : " modelos · ") + pares + (pares === 1 ? " par" : " pares");
-  if (!L.length) {
-    g.innerHTML = '<div class="vacio" style="grid-column:1/-1"><b>No hay zapatillas con esos filtros.</b><span>Prueba otra talla o pregúntanos: a veces llegan pares nuevos a bodega.</span><a class="boton boton-fucsia" target="_blank" rel="noopener" href="' + enlaceWA("Hola, busco zapatillas talla " + (estado.talla || "") + ". ¿Les llegó algo?") + '">Preguntar por WhatsApp</a></div>';
-    $("#mas").hidden = true; return;
-  }
-  L.slice(0, estado.ver).forEach((p, i) => g.appendChild(tarjeta(p, i)));
-  $("#mas").hidden = L.length <= estado.ver;
-}
-
-function botonesTalla() {
-  const todas = new Set(); P.forEach(p => tallasDe(p).forEach(t => todas.add(t)));
-  const lista = [...todas].filter(t => tnum(t) < 999).sort((a, b) => tnum(a) - tnum(b));
-  const cont = $("#tallas"); cont.innerHTML = "";
-  const todo = document.createElement("button"); todo.type = "button"; todo.className = "talla"; todo.textContent = "Todas"; todo.setAttribute("aria-pressed", "true"); todo.dataset.t = ""; cont.appendChild(todo);
-  lista.forEach(t => { const b = document.createElement("button"); b.type = "button"; b.className = "talla"; b.textContent = t; b.dataset.t = t; b.setAttribute("aria-pressed", "false"); b.setAttribute("aria-label", "Talla " + t); cont.appendChild(b); });
-  cont.addEventListener("click", e => {
-    const b = e.target.closest(".talla"); if (!b) return;
-    estado.talla = b.dataset.t; estado.ver = 24;
-    cont.querySelectorAll(".talla").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
-    guardar("talla", estado.talla); pintar();
-  });
-  const marcas = [...new Set(P.map(p => p.m))].sort();
-  marcas.forEach(m => { const o = document.createElement("option"); o.value = m; o.textContent = m; $("#marca").appendChild(o); });
-  const minT = lista[0], maxT = lista[lista.length - 1];
-  $("#c-modelos").textContent = P.length.toLocaleString("es-CL");
-  $("#c-pares").textContent = P.reduce((s, p) => s + p.s, 0).toLocaleString("es-CL");
-  $("#c-tallas").textContent = minT + " a " + maxT;
-}
-
-function elegirCat(cat) {
-  estado.cat = cat; estado.ver = 24;
-  document.querySelectorAll("#categorias .pildora").forEach(x => x.setAttribute("aria-pressed", x.dataset.cat === cat ? "true" : "false"));
-  pintar();
-}
-
-/* Ficha */
-let actual = null, tallaFicha = "";
-function abrir(id) {
-  const p = P.find(x => x.id === id); if (!p) return;
-  actual = p; const ts = tallasDe(p);
-  tallaFicha = (estado.talla && p.t[estado.talla] > 0) ? estado.talla : (ts.length === 1 ? ts[0] : "");
-  $("#h-foto").src = foto(p.id); $("#h-foto").alt = p.m + " " + p.n + (p.c ? ", " + p.c : "");
-  $("#h-marca").textContent = p.m + (p.k === "ninos" ? " · Niños" : p.g === "Mujer" ? " · Mujer" : "");
-  $("#h-nombre").textContent = p.n; $("#h-color").textContent = p.c || "";
-  $("#h-precio").textContent = pesos(p.p);
-  const cont = $("#h-tallas"); cont.innerHTML = "";
-  ts.forEach(t => {
-    const b = document.createElement("button"); b.type = "button"; b.className = "talla"; b.textContent = t;
-    b.setAttribute("aria-label", "Talla " + t + (p.t[t] === 1 ? ", último par" : ""));
-    b.addEventListener("click", () => { tallaFicha = t; marcarFicha(); });
-    cont.appendChild(b);
-  });
-  $("#h-aviso").textContent = "";
-  marcarFicha();
-  const d = $("#hoja"); if (!d.open) { if (typeof d.showModal === "function") d.showModal(); else d.setAttribute("open", ""); }
-  $("#h-nombre").focus({ preventScroll: true });
-  ponerHash("zapatilla-" + p.id);
-}
-function ponerHash(h) { try { history.replaceState(null, "", h ? "#" + h : location.pathname + location.search); } catch (e) {} }
-function enlaceFicha(p) { return location.href.split("#")[0] + "#zapatilla-" + p.id; }
-$("#h-copiar").addEventListener("click", async () => {
-  const url = enlaceFicha(actual);
-  try { await navigator.clipboard.writeText(url); $("#h-aviso").textContent = "Enlace copiado. Pégalo donde quieras compartirlo."; }
-  catch (e) { $("#h-aviso").textContent = url; const r = document.createRange(); r.selectNodeContents($("#h-aviso")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
-});
-$("#hoja").addEventListener("close", () => { if (location.hash.startsWith("#zapatilla-")) ponerHash(""); });
-function abrirDesdeHash() { const m = location.hash.match(/^#zapatilla-([a-z0-9-]+)$/); if (m && P.length) abrir(m[1]); }
-window.addEventListener("hashchange", abrirDesdeHash);
-function marcarFicha() {
-  $("#h-tallas").querySelectorAll(".talla").forEach(b => b.setAttribute("aria-pressed", b.textContent === tallaFicha ? "true" : "false"));
-  const p = actual;
-  const sinTallas = !tallasDe(p).length;
-  const txt = tallaFicha
-    ? "Hola, quiero las " + p.m + " " + p.n + (p.c ? " (" + p.c + ")" : "") + " en talla " + tallaFicha + ", a " + pesos(p.p) + ". ¿Me las apartan?"
-    : "Hola, me interesan las " + p.m + " " + p.n + (p.c ? " (" + p.c + ")" : "") + ". ¿Qué tallas les quedan?";
-  $("#h-mensaje").textContent = "Mensaje: " + txt;
-  const a = $("#h-wa"); a.href = enlaceWA(txt); a.target = "_blank"; a.rel = "noopener";
-  a.textContent = tallaFicha ? "Pedir talla " + tallaFicha + " por WhatsApp" : "Consultar por WhatsApp";
-  $("#h-tallas").previousElementSibling.hidden = sinTallas;
-}
-$("#cerrar").addEventListener("click", () => $("#hoja").close());
-$("#hoja").addEventListener("click", e => { if (e.target.id === "hoja") $("#hoja").close(); });
-
-/* Eventos */
-$("#categorias").addEventListener("click", e => { const b = e.target.closest(".pildora"); if (b) elegirCat(b.dataset.cat); });
-document.querySelectorAll("a[data-cat]").forEach(a => a.addEventListener("click", () => elegirCat(a.dataset.cat)));
-let espera; $("#buscar").addEventListener("input", e => { clearTimeout(espera); espera = setTimeout(() => { estado.q = e.target.value; estado.ver = 24; pintar(); }, 160); });
-$("#marca").addEventListener("change", e => { estado.marca = e.target.value; estado.ver = 24; pintar(); });
-$("#orden").addEventListener("change", e => { estado.orden = e.target.value; pintar(); });
-$("#mas").addEventListener("click", () => { estado.ver += 24; pintar(); });
-$("#ir-talla").addEventListener("click", e => { e.preventDefault(); $("#filtros").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); });
-document.querySelector(".etiqueta").addEventListener("click", e => { e.preventDefault(); abrir(e.currentTarget.dataset.abrir); });
-
-/* Franja de marcas: dos cintas en sentido contrario, cada una con dos copias para un movimiento continuo */
-(function () {
-  const sep = '<svg class="sep" aria-hidden="true" viewBox="0 0 64 64"><path d="M32 2l6 24 24 6-24 6-6 24-6-24-24-6 24-6z" fill="currentColor"/></svg>';
-  function llenar(cinta, conLogo, orden) {
-    for (let copia = 0; copia < 2; copia++) {
-      const g = document.createElement("div"); g.className = "cinta-grupo"; if (copia) g.setAttribute("aria-hidden", "true");
-      orden.forEach(m => {
-        const it = document.createElement("span"); it.className = "marca-item";
-        if (conLogo && m.logo) { const im = document.createElement("img"); im.src = m.logo; im.alt = copia ? "" : m.nombre; im.loading = "lazy"; it.appendChild(im); }
-        else it.textContent = m.nombre;
-        g.appendChild(it); g.insertAdjacentHTML("beforeend", sep);
-      });
-      cinta.appendChild(g);
+  if (TIENDA.mapa || TIENDA.mapaEmbed) {
+    const m = $("#mapa"); m.replaceChildren(); m.classList.add("con-mapa");
+    /* La página de revisión no permite mapas incrustados; en la web real (GitHub / dominio) sí se muestra */
+    const enRevision = /claude/i.test(location.hostname);
+    if (enRevision || !TIENDA.mapaEmbed) { m.classList.add("sin-embed"); m.insertAdjacentHTML("beforeend", '<div class="pin"><svg aria-hidden="true" viewBox="0 0 24 24" width="34" height="34"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="#E0186C"/><circle cx="12" cy="10" r="2.6" fill="#FFFFFF"/></svg><b></b><small>El mapa se ve en la web publicada</small></div>'); m.querySelector(".pin b").textContent = TIENDA.direccion || "Tienda Sport Glam"; }
+    else if (TIENDA.mapaEmbed) { const f = document.createElement("iframe"); f.src = TIENDA.mapaEmbed; f.title = "Mapa: " + (TIENDA.direccion || "Tienda Sport Glam"); f.loading = "lazy"; f.referrerPolicy = "no-referrer-when-downgrade"; f.setAttribute("allowfullscreen", ""); m.appendChild(f); }
+    if (TIENDA.mapa) {
+      const a = document.createElement("a"); a.className = "boton boton-tinta"; a.target = "_blank"; a.rel = "noopener"; a.href = TIENDA.mapa; a.textContent = "Cómo llegar"; m.appendChild(a);
+      $$('a[href="#tienda"]').forEach(x => { if (x.textContent.trim() === "Cómo llegar") { x.href = TIENDA.mapa; x.target = "_blank"; x.rel = "noopener"; } });
     }
   }
-  llenar($("#cinta-marcas"), true, MARCAS);
-  llenar($("#cinta-marcas-2"), false, MARCAS.slice(4).concat(MARCAS.slice(0, 4)));
-})();
-
-/* Categorías y recién llegadas */
-const CATS = [["mujer", "Mujer", p => p.g === "Mujer"], ["ninos", "Niños", p => p.k === "ninos"], ["running", "Running", p => p.k === "running"], ["urbanas", "Urbanas", p => p.k === "urbanas"]];
-function armarPortadaExtra() {
-  const cont = $("#cats"); cont.innerHTML = "";
-  const usadas = new Set();
-  CATS.forEach(([cat, nombre, f]) => {
-    const L = P.filter(f); if (!L.length) return;
-    const top = L.filter(p => !usadas.has(p.id)).sort((a, b) => ((b.r || 0) - (a.r || 0)) || (tallasDe(b).length - tallasDe(a).length))[0] || L[0];
-    usadas.add(top.id);
-    const b = document.createElement("button"); b.type = "button"; b.className = "cat-tile";
-    b.setAttribute("aria-label", nombre + ", " + L.length + " modelos");
-    b.innerHTML = '<div class="cat-foto"><img loading="lazy" decoding="async" alt="" width="520" height="520"></div><div class="cat-texto"><b></b><span></span></div>';
-    b.querySelector("img").src = foto(top.id); b.querySelector("b").textContent = nombre; b.querySelector("span").textContent = L.length + " modelos";
-    b.addEventListener("click", () => { elegirCat(cat); $("#catalogo").scrollIntoView({ behavior: suave() }); });
-    cont.appendChild(b);
-  });
-  const N = P.filter(p => p.r).sort((a, b) => tallasDe(b).length - tallasDe(a).length).slice(0, 12);
-  const riel = $("#riel"); riel.innerHTML = "";
-  if (!N.length) { $("#nuevas").hidden = true; return; }
-  N.forEach((p, i) => { const t = tarjeta(p, i); t.setAttribute("role", "listitem"); riel.appendChild(t); });
-}
-const suave = () => matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
-document.querySelectorAll("[data-riel]").forEach(b => b.addEventListener("click", () => { const r = $("#riel"); r.scrollBy({ left: Number(b.dataset.riel) * r.clientWidth * 0.8, behavior: suave() }); }));
-/* Riel de recién llegadas: avanza solo cada 5 s; se detiene mientras el cliente lo usa */
-(function () {
-  const r = $("#riel"); let quieto = 0;
-  const parar = () => { quieto = Date.now() + 8000; };
-  ["mouseenter", "focusin", "touchstart", "pointerdown", "wheel"].forEach(ev => r.addEventListener(ev, parar, { passive: true }));
-  r.addEventListener("mouseleave", () => { quieto = Date.now() + 1500; });
-  setInterval(() => {
-    if (Date.now() < quieto || document.hidden || !r.children.length) return;
-    const caja = r.getBoundingClientRect(); if (caja.bottom < 0 || caja.top > innerHeight) return;   // solo si se está viendo
-    const paso = r.children[0].getBoundingClientRect().width + 16;
-    const fin = r.scrollLeft + r.clientWidth >= r.scrollWidth - 4;
-    r.scrollTo({ left: fin ? 0 : r.scrollLeft + paso, behavior: suave() });
-  }, 5000);
-})();
-$("#ver-nuevas").addEventListener("click", () => { elegirCat("nuevos"); $("#catalogo").scrollIntoView({ behavior: suave() }); });
-
-/* Sombra de la cabecera y WhatsApp flotante al bajar */
-(function () {
-  const cab = document.querySelector(".cabecera"), wa = $("#wa-flotante"); let pend = false;
-  const revisar = () => { pend = false; const y = scrollY; cab.classList.toggle("con-sombra", y > 8); wa.classList.toggle("ver", y > 640); };
-  addEventListener("scroll", () => { if (!pend) { pend = true; requestAnimationFrame(revisar); } }, { passive: true }); revisar();
-})();
-
-/* Vitrina de la portada: va cambiando de zapatilla */
-const vitrina = { lista: [], i: 0, reloj: null, pausa: false, ocupada: false };
-function elegirDestacadas() {
-  const buenas = P.filter(p => tallasDe(p).length >= 3).sort((a, b) => ((b.r || 0) - (a.r || 0)) || (tallasDe(b).length - tallasDe(a).length) || (b.s - a.s));
-  const lista = [], marcas = new Map();
-  const campus = P.find(p => p.id === "adidas-jp9998"); if (campus) { lista.push(campus); marcas.set(campus.m, 1); }
-  for (const p of buenas) {            // variedad: máximo 2 por marca
-    if (lista.length >= 7) break;
-    if (lista.includes(p) || (marcas.get(p.m) || 0) >= 2) continue;
-    lista.push(p); marcas.set(p.m, (marcas.get(p.m) || 0) + 1);
-  }
-  return lista;
-}
-function pintarEtiqueta(p) {
-  const e = document.querySelector(".etiqueta");
-  e.dataset.abrir = p.id; e.href = "#zapatilla-" + p.id;
-  $("#et-nombre").textContent = p.m + " " + p.n; $("#et-precio").textContent = pesos(p.p); e.hidden = false;
-  document.querySelectorAll("#puntos button").forEach((b, k) => b.setAttribute("aria-current", k === vitrina.i ? "true" : "false"));
-}
-function precargar(src) { return new Promise(ok => { const im = new Image(); im.onload = im.onerror = () => ok(); im.src = src; }); }
-async function mostrarDestacada(k) {
-  if (vitrina.ocupada || !vitrina.lista.length) return;
-  vitrina.ocupada = true;
-  const p = vitrina.lista[k], img = document.querySelector(".zapa img"), e = document.querySelector(".etiqueta");
-  const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const src = foto(p.id); const carga = precargar(src);
-  if (!quieto) { img.classList.remove("entrando"); img.classList.add("sale"); await new Promise(r => setTimeout(r, 420)); }
-  await carga;
-  vitrina.i = k; img.src = src; img.alt = p.m + " " + p.n + (p.c ? ", " + p.c : "");
-  img.classList.remove("sale", "entrando", "funde"); void img.offsetWidth; img.classList.add(quieto ? "funde" : "entrando");
-  e.classList.remove("cambia"); void e.offsetWidth; e.classList.add("cambia");
-  const d = document.querySelector(".destello"); d.classList.remove("pulso"); void d.getBoundingClientRect(); d.classList.add("pulso");
-  const dc = document.querySelector(".disco"); dc.classList.remove("late"); void dc.offsetWidth; dc.classList.add("late");
-  pintarEtiqueta(p);
-  vitrina.ocupada = false;
-}
-function programarVitrina() {
-  clearInterval(vitrina.reloj);
-  if (vitrina.lista.length < 2) return;   // con "reducir movimiento" también cambia, pero solo con fundido
-  vitrina.reloj = setInterval(() => { if (!vitrina.pausa && !document.hidden) mostrarDestacada((vitrina.i + 1) % vitrina.lista.length); }, 4500);
-}
-function iniciarVitrina() {
-  vitrina.lista = elegirDestacadas(); if (!vitrina.lista.length) return;
-  const cont = $("#puntos"); cont.innerHTML = "";
-  vitrina.lista.forEach((p, k) => {
-    const b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-label", "Ver " + p.m + " " + p.n);
-    b.addEventListener("click", () => { if (k !== vitrina.i) mostrarDestacada(k); programarVitrina(); });
-    cont.appendChild(b);
-  });
-  cont.hidden = vitrina.lista.length < 2;
-  const img = document.querySelector(".zapa img"), p = vitrina.lista[0];
-  if (img.getAttribute("src") !== foto(p.id)) { img.src = foto(p.id); img.alt = p.m + " " + p.n; }
-  pintarEtiqueta(p);
-  programarVitrina();
-}
-(function () {
-  const esc = document.querySelector(".escena");
-  esc.addEventListener("mouseenter", () => vitrina.pausa = true);
-  esc.addEventListener("mouseleave", () => vitrina.pausa = false);
-  esc.addEventListener("focusin", () => vitrina.pausa = true);
-  esc.addEventListener("focusout", () => vitrina.pausa = false);
-  document.querySelector(".zapa img").addEventListener("click", () => { const p = vitrina.lista[vitrina.i]; if (p) abrir(p.id); });
-})();
-
-/* Logo: repetir la animación al tocarlo */
-$("#marca-inicio").addEventListener("click", e => { const a = e.currentTarget; a.classList.remove("jugar"); void a.offsetWidth; a.classList.add("jugar"); });
-
-/* Mientras carga: tarjetas de espera */
-(function () { const g = $("#grilla"); for (let i = 0; i < 8; i++) { const d = document.createElement("div"); d.className = "esqueleto"; d.setAttribute("aria-hidden", "true"); d.innerHTML = '<div class="e-foto"></div><div class="e-l"></div><div class="e-l corta"></div>'; g.appendChild(d); } })();
-
-/* Pie de página y datos para Google */
-(function () {
   $("#anio").textContent = new Date().getFullYear();
   const redes = [["Instagram", TIENDA.instagram], ["TikTok", TIENDA.tiktok], ["Facebook", TIENDA.facebook]].filter(r => r[1]);
   const nav = $("#redes");
-  if (redes.length) redes.forEach(([n, u], i) => { if (i) nav.append(" · "); const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = n; nav.appendChild(a); });
+  if (redes.length) redes.forEach(([n, u]) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = n; nav.appendChild(a); });
   else nav.hidden = true;
   if (TIENDA.direccion) $("#pie-direccion").textContent = TIENDA.direccion;
   if (TIENDA.horario) $("#pie-horario").textContent = TIENDA.horario;
@@ -983,18 +1074,453 @@ $("#marca-inicio").addEventListener("click", e => { const a = e.currentTarget; a
   } catch (e) {}
 })();
 
-let listoExtra = false;
-cargarExtra().then(() => { listoExtra = true; if (P.length) { pintar(); armarPortadaExtra(); if (actual && $("#hoja").open) $("#h-foto").src = foto(actual.id); } });
+/* ---------- Barra de anuncio: rota en el celular ---------- */
+(function () {
+  const sp = $$("#anuncio span"); let i = 0;
+  setInterval(() => { if (document.hidden || innerWidth > 760) return; sp[i].classList.remove("on"); i = (i + 1) % sp.length; sp[i].classList.add("on"); }, 3500);
+})();
+
+/* ---------- Catálogo ---------- */
+async function cargar() {
+  if (DATOS.fuente === "nube" && DATOS.nubeUrl && DATOS.nubeClave) {
+    try {
+      const r = await fetch(DATOS.nubeUrl + "/rest/v1/rpc/catalogo_publico", { method: "POST", headers: { apikey: DATOS.nubeClave, Authorization: "Bearer " + DATOS.nubeClave, "Content-Type": "application/json" }, body: "{}" });
+      if (r.ok) return await r.json();
+    } catch (e) { /* si la nube no responde se usa el archivo */ }
+  }
+  if (window.CATALOGO) return window.CATALOGO;
+  const r = await fetch("catalogo.json"); return r.json();
+}
+const tallasDe = p => Object.keys(p.t).filter(t => p.t[t] > 0).sort((a, b) => tnum(a) - tnum(b));
+const categoriaDe = p => p.k === "ninos" ? "Niños" : p.g === "Mujer" ? "Mujer" : ({ running: "Running", urbanas: "Urbanas", basquetbol: "Básquetbol" }[p.k] || "");
+const esUltimo = p => p.s === 1;
+
+/* ---------- Favoritos ---------- */
+let FAV = new Set(leer("favs", []));
+function toggleFav(id) {
+  if (FAV.has(id)) FAV.delete(id); else { FAV.add(id); const p = porId.get(id); medir("add_to_wishlist", { item_id: id, item_name: p ? p.m + " " + p.n : id }); }
+  guardar("favs", [...FAV]); pintarContadores();
+  $$('[data-fav="' + id + '"]').forEach(b => b.setAttribute("aria-pressed", FAV.has(id) ? "true" : "false"));
+  if (actual && actual.id === id) $("#h-fav").setAttribute("aria-pressed", FAV.has(id) ? "true" : "false");
+  if (estado.cat === "favoritos") pintar();
+}
+
+/* ---------- Bolsa ---------- */
+let BOLSA = (leer("bolsa", []) || []).filter(x => x && x.id && x.t);
+function guardarBolsa() { guardar("bolsa", BOLSA); pintarContadores(); if ($("#bolsa").open) pintarBolsa(); }
+function agregar(id, t) {
+  const p = porId.get(id); if (!p || !(p.t[t] > 0)) return;
+  const it = BOLSA.find(x => x.id === id && x.t === t);
+  if (it) it.q = Math.min(it.q + 1, p.t[t]); else BOLSA.push({ id, t, q: 1 });
+  guardarBolsa();
+  medir("add_to_cart", { currency: "CLP", value: p.p, items: [{ item_id: id, item_name: p.m + " " + p.n, item_brand: p.m, item_variant: "Talla " + t, price: p.p, quantity: 1 }] });
+  if ($("#hoja").open && actual && actual.id === id) { enBolsaFicha = true; textoAgregar(); }
+  else aviso(p.m + " " + p.n + " · talla " + t + " agregada", true);
+  const c = $("#n-bolsa"); c.classList.remove("salta"); void c.offsetWidth; c.classList.add("salta");
+}
+function textoPedido() {
+  let total = 0;
+  const lineas = BOLSA.map((x, i) => { const p = porId.get(x.id); if (!p) return ""; total += p.p * x.q; return (i + 1) + ") " + p.m + " " + p.n + (p.c ? " (" + p.c + ")" : "") + " · talla " + x.t + " · " + x.q + (x.q > 1 ? " pares" : " par") + " · " + pesos(p.p * x.q); }).filter(Boolean);
+  return { total, texto: "Hola, vengo de la web de Tienda Sport Glam y quiero hacer este pedido:\n\n" + lineas.join("\n") + "\n\nTotal: " + pesos(total) + "\n¿Me confirman disponibilidad y forma de pago?" };
+}
+function pintarBolsa() {
+  const cont = $("#bolsa-lista"); cont.innerHTML = "";
+  if (!BOLSA.length) {
+    cont.innerHTML = '<div class="bolsa-vacia"><span class="ic">' + $("#abrir-bolsa svg").outerHTML + '</span><b>Tu bolsa está vacía</b><span>Elige tus zapatillas y tu talla, y agrégalas aquí para pedirlas todas juntas.</span><button class="boton boton-tinta" type="button" id="bolsa-ir">Ver catálogo</button></div>';
+    $("#bolsa-ir").addEventListener("click", () => { $("#bolsa").close(); $("#catalogo").scrollIntoView({ behavior: suave() }); });
+    $("#bolsa-pie").hidden = true; return;
+  }
+  $("#bolsa-pie").hidden = false;
+  BOLSA.forEach((x, k) => {
+    const p = porId.get(x.id); if (!p) return;
+    const d = document.createElement("div"); d.className = "item";
+    d.innerHTML = '<div class="if"></div><div><b></b><small></small><div class="cant"><button type="button" aria-label="Quitar un par">−</button><span></span><button type="button" aria-label="Agregar un par">+</button></div></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px"><b class="precio"></b><button class="quitar" type="button">Quitar</button></div>';
+    d.querySelector(".if").appendChild(img(p));
+    d.querySelector("b").textContent = p.m + " " + p.n;
+    d.querySelector("small").textContent = (p.c ? p.c + " · " : "") + "Talla " + x.t;
+    d.querySelector(".cant span").textContent = x.q;
+    d.querySelector(".precio").textContent = pesos(p.p * x.q);
+    const [menos, mas] = d.querySelectorAll(".cant button");
+    menos.addEventListener("click", () => { x.q--; if (x.q <= 0) BOLSA.splice(k, 1); guardarBolsa(); });
+    mas.addEventListener("click", () => { if (x.q < (p.t[x.t] || 1)) { x.q++; guardarBolsa(); } else aviso("No hay más pares en esa talla"); });
+    d.querySelector(".quitar").addEventListener("click", () => { BOLSA.splice(k, 1); guardarBolsa(); });
+    cont.appendChild(d);
+  });
+  const { total, texto } = textoPedido();
+  $("#bolsa-total").textContent = pesos(total);
+  const a = $("#bolsa-wa"); a.href = enlaceWA(texto); a.target = "_blank"; a.rel = "noopener";
+}
+$("#bolsa-wa").addEventListener("click", () => { const { total } = textoPedido(); medir("begin_checkout", { currency: "CLP", value: total, items: BOLSA.length }); });
+function abrirBolsa() { pintarBolsa(); abrirDialogo($("#bolsa")); }
+$("#abrir-bolsa").addEventListener("click", abrirBolsa);
+$$("[data-abrir-bolsa]").forEach(b => b.addEventListener("click", abrirBolsa));
+function pintarContadores() {
+  const n = BOLSA.reduce((s, x) => s + x.q, 0);
+  [$("#n-bolsa"), ...$$("[data-n-bolsa]")].forEach(c => { c.textContent = n; c.hidden = !n; });
+  const f = $("#n-favs"); f.textContent = FAV.size; f.hidden = !FAV.size;
+}
+
+/* ---------- Aviso flotante ---------- */
+let relojAviso;
+function aviso(texto, conBoton) {
+  $("#toast-texto").textContent = texto; $("#toast-btn").hidden = !conBoton;
+  const t = $("#toast"); t.classList.add("ver"); clearTimeout(relojAviso); relojAviso = setTimeout(() => t.classList.remove("ver"), 3200);
+}
+$("#toast-btn").addEventListener("click", () => { $("#toast").classList.remove("ver"); abrirBolsa(); });
+
+/* ---------- Diálogos ---------- */
+function abrirDialogo(d) { if (d.open) return; if (typeof d.showModal === "function") d.showModal(); else d.setAttribute("open", ""); }
+$$("dialog").forEach(d => {
+  d.addEventListener("click", e => { if (e.target === d) d.close(); });
+  d.querySelectorAll("[data-cerrar]").forEach(b => b.addEventListener("click", () => d.close()));
+});
+
+/* ---------- Tarjeta de producto ---------- */
+function tarjeta(p, i, conEntrada) {
+  const ts = tallasDe(p);
+  const d = document.createElement("div"); d.className = "card" + (conEntrada ? " aparece" : ""); d.style.setProperty("--i", i % 24); d.setAttribute("role", "listitem");
+  const sello = p.r ? '<span class="sello">Nuevo</span>' : (esUltimo(p) ? '<span class="sello oscuro">Último par</span>' : "");
+  const tt = !ts.length ? "Consultar" : ts.length === 1 ? "Talla " + ts[0] : ts.length + " tallas";
+  d.innerHTML = '<div class="card-foto">' + sello + '<button class="fav" type="button" aria-pressed="false">' + ico("corazon", 18) + '</button>' +
+    (ts.length ? '<div class="rapido"><small>Agregar talla</small><div></div></div>' : "") + '</div>' +
+    '<div class="card-info"><span class="marca"></span><span class="nombre"></span><span class="color"></span><div class="card-pie"><b class="precio"></b><small></small></div></div>' +
+    '<button class="card-abrir" type="button"></button>';
+  d.querySelector(".card-foto").insertBefore(img(p), d.querySelector(".fav"));
+  d.querySelector(".marca").textContent = p.m + (categoriaDe(p) ? " · " + categoriaDe(p) : "");
+  d.querySelector(".nombre").textContent = p.n;
+  d.querySelector(".color").textContent = p.c || " ";
+  d.querySelector(".precio").textContent = pesos(p.p);
+  d.querySelector(".card-pie small").textContent = tt;
+  const fav = d.querySelector(".fav"); fav.dataset.fav = p.id; fav.setAttribute("aria-pressed", FAV.has(p.id) ? "true" : "false");
+  fav.setAttribute("aria-label", "Guardar " + p.m + " " + p.n + " en favoritos");
+  fav.addEventListener("click", e => { e.stopPropagation(); toggleFav(p.id); });
+  const r = d.querySelector(".rapido div");
+  if (r) ts.slice(0, 8).forEach(t => { const b = document.createElement("button"); b.type = "button"; b.textContent = t; b.setAttribute("aria-label", "Agregar talla " + t + " a la bolsa"); b.addEventListener("click", e => { e.stopPropagation(); agregar(p.id, t); }); r.appendChild(b); });
+  const ab = d.querySelector(".card-abrir"); ab.setAttribute("aria-label", p.m + " " + p.n + ", " + pesos(p.p) + ", " + tt);
+  ab.addEventListener("click", () => abrir(p.id));
+  return d;
+}
+
+/* ---------- Filtros ---------- */
+function filtrar() {
+  const q = palabras(estado.q);
+  const [rmin, rmax] = estado.rango ? estado.rango.split("-").map(Number) : [0, Infinity];
+  let L = P.filter(p => {
+    if (estado.talla && !(p.t[estado.talla] > 0)) return false;
+    if (estado.marca && p.m !== estado.marca) return false;
+    if (p.p < rmin || p.p > rmax) return false;
+    if (estado.cat === "mujer" && p.g !== "Mujer") return false;
+    if (estado.cat === "nuevos" && !p.r) return false;
+    if (estado.cat === "ultimos" && !esUltimo(p)) return false;
+    if (estado.cat === "favoritos" && !FAV.has(p.id)) return false;
+    if (["ninos", "urbanas", "running", "basquetbol"].includes(estado.cat) && p.k !== estado.cat) return false;
+    if (q.length) { const h = norm(p.m + " " + p.n + " " + p.c + " " + categoriaDe(p) + " " + tallasDe(p).join(" ")); if (!q.every(w => h.includes(w))) return false; }
+    return true;
+  });
+  if (estado.orden === "menor") L.sort((a, b) => a.p - b.p);
+  else if (estado.orden === "mayor") L.sort((a, b) => b.p - a.p);
+  else if (estado.orden === "nuevos") L.sort((a, b) => ((b.r || 0) - (a.r || 0)) || (tallasDe(b).length - tallasDe(a).length));
+  else L.sort((a, b) => (tallasDe(b).length - tallasDe(a).length) || (b.s - a.s));
+  return L;
+}
+const NOMBRES_CAT = { ninos: "Niños", mujer: "Mujer", urbanas: "Urbanas", running: "Running", basquetbol: "Básquetbol", nuevos: "Novedades", ultimos: "Últimos pares", favoritos: "Tus favoritos" };
+function pintar() {
+  const L = filtrar(), g = $("#grilla"); g.innerHTML = ""; g.setAttribute("role", "list");
+  let titulo = NOMBRES_CAT[estado.cat] || "Todo el catálogo"; if (estado.talla) titulo += (estado.cat === "todas" ? "" : " ·") + " talla " + estado.talla; if (estado.cat === "todas" && estado.talla) titulo = "Talla " + estado.talla;
+  $("#cat-titulo").textContent = titulo;
+  const pares = L.reduce((s, p) => s + (estado.talla ? (p.t[estado.talla] || 0) : p.s), 0);
+  $("#cat-cuenta").textContent = L.length + (L.length === 1 ? " modelo · " : " modelos · ") + pares.toLocaleString("es-CL") + (pares === 1 ? " par" : " pares");
+  if (!L.length) {
+    const fav = estado.cat === "favoritos";
+    g.innerHTML = '<div class="vacio" style="grid-column:1/-1"><b>' + (fav ? "Todavía no tienes favoritos." : "No hay zapatillas con esos filtros.") + '</b><span>' + (fav ? "Toca el corazón de las zapatillas que te gusten para guardarlas aquí." : "Prueba otra talla o pregúntanos: a veces llegan pares nuevos.") + '</span>' + (fav ? "" : '<a class="boton boton-fucsia" target="_blank" rel="noopener" href="' + esc(enlaceWA("Hola, busco zapatillas" + (estado.talla ? " talla " + estado.talla : "") + ". ¿Les llegó algo?")) + '">Preguntar por WhatsApp</a>') + '</div>';
+    $("#mas").hidden = true; return;
+  }
+  L.slice(0, estado.ver).forEach((p, i) => g.appendChild(tarjeta(p, i, true)));
+  $("#mas").hidden = L.length <= estado.ver;
+}
+function marcarTalla(t) {
+  estado.talla = t; estado.ver = 24; guardar("talla", t);
+  $$("#tallas .talla").forEach(x => x.setAttribute("aria-pressed", x.dataset.t === t ? "true" : "false"));
+  pintar();
+}
+function botonesTalla() {
+  const todas = new Set(); P.forEach(p => tallasDe(p).forEach(t => todas.add(t)));
+  const lista = [...todas].filter(t => tnum(t) < 999).sort((a, b) => tnum(a) - tnum(b));
+  const cont = $("#tallas"); cont.innerHTML = "";
+  [""].concat(lista).forEach(t => { const b = document.createElement("button"); b.type = "button"; b.className = "talla"; b.textContent = t || "Todas"; b.dataset.t = t; b.setAttribute("aria-pressed", t === "" ? "true" : "false"); if (t) b.setAttribute("aria-label", "Talla " + t); cont.appendChild(b); });
+  cont.addEventListener("click", e => { const b = e.target.closest(".talla"); if (b) marcarTalla(b.dataset.t); });
+  /* Grilla grande de "¿Cuál es tu talla?": tallas enteras y medias con cantidad de modelos */
+  const gt = $("#grilla-tallas"); gt.innerHTML = "";
+  lista.forEach(t => {
+    const n = P.filter(p => p.t[t] > 0).length; if (n < 2) return;
+    const b = document.createElement("button"); b.type = "button"; b.innerHTML = esc(t) + "<small>" + n + " modelos</small>"; b.setAttribute("aria-label", "Talla " + t + ", " + n + " modelos");
+    b.addEventListener("click", () => { marcarTalla(t); elegirCat("todas", true); $("#catalogo").scrollIntoView({ behavior: suave() }); });
+    gt.appendChild(b);
+  });
+  [...new Set(P.map(p => p.m))].sort().forEach(m => { const o = document.createElement("option"); o.value = m; o.textContent = m; $("#marca").appendChild(o); });
+  /* Guía de tallas (referencial) */
+  const filas = []; for (let t = 27; t <= 46; t++) { const cm = Math.round((t / 1.5 - 1.5) * 2) / 2; filas.push([t, cm]); }
+  const mitad = Math.ceil(filas.length / 2), tb = $("#guia-filas"); tb.innerHTML = "";
+  for (let i = 0; i < mitad; i++) { const a = filas[i], b = filas[i + mitad]; const tr = document.createElement("tr"); tr.innerHTML = "<td><b>" + a[0] + "</b></td><td>" + a[1].toLocaleString("es-CL") + " cm</td>" + (b ? "<td><b>" + b[0] + "</b></td><td>" + b[1].toLocaleString("es-CL") + " cm</td>" : "<td></td><td></td>"); tb.appendChild(tr); }
+}
+function elegirCat(cat, sinPintar) {
+  estado.cat = cat; estado.ver = 24;
+  $$("#categorias .pildora").forEach(x => x.setAttribute("aria-pressed", x.dataset.cat === cat ? "true" : "false"));
+  if (!sinPintar) pintar();
+}
+$("#categorias").addEventListener("click", e => { const b = e.target.closest(".pildora"); if (b) elegirCat(b.dataset.cat); });
+$$("a[data-cat]").forEach(a => a.addEventListener("click", () => elegirCat(a.dataset.cat)));
+$$("[data-ir-cat]").forEach(b => b.addEventListener("click", () => { elegirCat(b.dataset.irCat); $("#catalogo").scrollIntoView({ behavior: suave() }); }));
+let espera; $("#buscar").addEventListener("input", e => { clearTimeout(espera); espera = setTimeout(() => { estado.q = e.target.value; estado.ver = 24; pintar(); if (estado.q.length > 2) medir("search", { search_term: estado.q }); }, 180); });
+$("#marca").addEventListener("change", e => { estado.marca = e.target.value; estado.ver = 24; pintar(); });
+$("#rango").addEventListener("change", e => { estado.rango = e.target.value; estado.ver = 24; pintar(); });
+$("#orden").addEventListener("change", e => { estado.orden = e.target.value; pintar(); });
+$("#mas").addEventListener("click", () => { estado.ver += 24; pintar(); });
+$("#ver-favs").addEventListener("click", () => { elegirCat("favoritos"); $("#catalogo").scrollIntoView({ behavior: suave() }); });
+$$("[data-guia]").forEach(b => b.addEventListener("click", e => { e.preventDefault(); abrirDialogo($("#guia")); }));
+
+/* ---------- Ficha ---------- */
+let actual = null, tallaFicha = "", enBolsaFicha = false;
+function textoAgregar() {
+  const b = $("#h-agregar"), n = BOLSA.reduce((s, x) => s + x.q, 0);
+  b.lastChild.textContent = enBolsaFicha ? "Agregada · Ver bolsa (" + n + ")" : "Agregar a la bolsa";
+  b.classList.toggle("listo", enBolsaFicha);
+}
+function abrir(id) {
+  const p = porId.get(id); if (!p) return;
+  actual = p; const ts = tallasDe(p);
+  tallaFicha = (estado.talla && p.t[estado.talla] > 0) ? estado.talla : (ts.length === 1 ? ts[0] : "");
+  enBolsaFicha = false; textoAgregar();
+  const esc0 = $("#h-escenario"); esc0.classList.remove("zoom");
+  const viejo = $("#h-foto"), nuevo = img(p, "", "eager"); nuevo.id = "h-foto"; nuevo.alt = p.m + " " + p.n + (p.c ? ", " + p.c : ""); viejo.replaceWith(nuevo);
+  $("#h-marca").textContent = p.m + (categoriaDe(p) ? " · " + categoriaDe(p) : "");
+  $("#h-nombre").textContent = p.n; $("#h-color").textContent = p.c || "";
+  $("#h-precio").textContent = pesos(p.p);
+  const etq = $("#h-etq"); etq.hidden = !(p.r || esUltimo(p)); etq.textContent = p.r ? "Recién llegada" : "Último par";
+  const cont = $("#h-tallas"); cont.innerHTML = "";
+  ts.forEach(t => {
+    const b = document.createElement("button"); b.type = "button"; b.className = "talla" + (p.t[t] === 1 ? " ultimo" : ""); b.textContent = t; b.dataset.t = t;
+    b.setAttribute("aria-label", "Talla " + t + (p.t[t] === 1 ? ", último par" : ""));
+    b.addEventListener("click", () => { tallaFicha = t; enBolsaFicha = false; textoAgregar(); marcarFicha(); });
+    cont.appendChild(b);
+  });
+  $("#h-tallas-tit").textContent = ts.length ? "Elige tu talla" : "Tallas: consúltanos";
+  $("#h-fav").setAttribute("aria-pressed", FAV.has(p.id) ? "true" : "false");
+  $("#h-aviso").textContent = "";
+  /* Relacionados: misma categoría, priorizando misma marca y precio parecido */
+  const rel = P.filter(x => x.id !== p.id && x.k === p.k && (x.g === p.g || p.k === "ninos")).sort((a, b) => ((b.m === p.m) - (a.m === p.m)) || (Math.abs(a.p - p.p) - Math.abs(b.p - p.p))).slice(0, 3);
+  const rl = $("#h-rel"); rl.innerHTML = ""; $("#h-rel-caja").hidden = !rel.length;
+  rel.forEach(x => { const b = document.createElement("button"); b.type = "button"; b.innerHTML = '<div class="rf"></div><span></span><b class="precio"></b>'; b.querySelector(".rf").appendChild(img(x)); b.querySelector("span").textContent = x.m + " " + x.n; b.querySelector(".precio").textContent = pesos(x.p); b.addEventListener("click", () => { abrir(x.id); $(".hoja-info").scrollTop = 0; }); rl.appendChild(b); });
+  marcarFicha();
+  abrirDialogo($("#hoja"));
+  $("#h-nombre").focus({ preventScroll: true });
+  ponerHash("zapatilla-" + p.id);
+  medir("view_item", { currency: "CLP", value: p.p, items: [{ item_id: p.id, item_name: p.m + " " + p.n, item_brand: p.m, price: p.p }] });
+}
+function marcarFicha() {
+  const p = actual;
+  $$("#h-tallas .talla").forEach(b => b.setAttribute("aria-pressed", b.dataset.t === tallaFicha ? "true" : "false"));
+  const hayUltimo = tallasDe(p).some(t => p.t[t] === 1) && tallasDe(p).some(t => p.t[t] > 1);
+  $("#h-aviso-talla").textContent = tallaFicha && p.t[tallaFicha] === 1 ? "Queda 1 par en talla " + tallaFicha + "." : (hayUltimo ? "El punto rosado marca las tallas con un solo par." : tallasDe(p).length > 1 && tallasDe(p).every(t => p.t[t] === 1) ? "Queda 1 par en cada talla." : (!tallaFicha && tallasDe(p).length ? "Elige una talla para agregarla a tu bolsa." : ""));
+  const txt = tallaFicha
+    ? "Hola, vengo de la web de Tienda Sport Glam. Quiero las " + p.m + " " + p.n + (p.c ? " (" + p.c + ")" : "") + " en talla " + tallaFicha + ", a " + pesos(p.p) + ". ¿Me las apartan?"
+    : "Hola, vengo de la web de Tienda Sport Glam. Me interesan las " + p.m + " " + p.n + (p.c ? " (" + p.c + ")" : "") + ". ¿Qué tallas les quedan?";
+  const a = $("#h-wa"); a.href = enlaceWA(txt); a.target = "_blank"; a.rel = "noopener";
+  a.lastChild.textContent = tallaFicha ? "Pedir talla " + tallaFicha + " por WhatsApp" : "Consultar por WhatsApp";
+  $("#h-agregar").disabled = !tallasDe(p).length;
+}
+$("#h-agregar").addEventListener("click", () => {
+  if (enBolsaFicha) { $("#hoja").close(); abrirBolsa(); return; }
+  if (!tallaFicha) { $("#h-aviso-talla").textContent = "Primero elige tu talla."; $("#h-tallas").animate?.([{ transform: "translateX(0)" }, { transform: "translateX(-6px)" }, { transform: "translateX(6px)" }, { transform: "translateX(0)" }], { duration: 300 }); return; }
+  agregar(actual.id, tallaFicha);
+});
+$("#h-wa").addEventListener("click", () => medir("begin_checkout", { currency: "CLP", value: actual ? actual.p : 0, items: 1, via: "ficha" }));
+$("#h-fav").addEventListener("click", () => actual && toggleFav(actual.id));
+$("#h-escenario").addEventListener("click", e => {
+  const s = e.currentTarget, im = $("#h-foto"); const r = s.getBoundingClientRect();
+  im.style.transformOrigin = ((e.clientX - r.left) / r.width * 100) + "% " + ((e.clientY - r.top) / r.height * 100) + "%";
+  s.classList.toggle("zoom");
+});
+function ponerHash(h) { try { history.replaceState(null, "", h ? "#" + h : location.pathname + location.search); } catch (e) {} }
+$("#h-copiar").addEventListener("click", async () => {
+  const url = location.href.split("#")[0] + "#zapatilla-" + actual.id;
+  try { await navigator.clipboard.writeText(url); $("#h-aviso").textContent = "Enlace copiado. Pégalo donde quieras compartirlo."; }
+  catch (e) { $("#h-aviso").textContent = url; const r = document.createRange(); r.selectNodeContents($("#h-aviso")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+});
+$("#hoja").addEventListener("close", () => { if (location.hash.startsWith("#zapatilla-")) ponerHash(""); });
+function abrirDesdeHash() { const m = location.hash.match(/^#zapatilla-([a-z0-9-]+)$/); if (m && P.length) abrir(m[1]); }
+addEventListener("hashchange", abrirDesdeHash);
+
+/* ---------- Buscador con sugerencias ---------- */
+function resaltar(texto, palabras) { let h = esc(texto); palabras.forEach(w => { if (w.length < 2) return; const i = norm(h).indexOf(w); if (i >= 0) h = h.slice(0, i) + "<mark>" + h.slice(i, i + w.length) + "</mark>" + h.slice(i + w.length); }); return h; }
+function sugerir(q) {
+  const cont = $("#sugerencias"); cont.innerHTML = "";
+  const ws = palabras(q); $("#populares").hidden = !!ws.length;
+  if (!ws.length) return;
+  const L = P.filter(p => { const h = norm(p.m + " " + p.n + " " + p.c + " " + categoriaDe(p) + " " + tallasDe(p).join(" ")); return ws.every(w => h.includes(w)); }).sort((a, b) => tallasDe(b).length - tallasDe(a).length).slice(0, 8);
+  if (!L.length) { cont.innerHTML = '<p style="color:var(--tenue);margin:8px">No encontramos "' + esc(q) + '". Prueba con la marca o el color.</p>'; return; }
+  L.forEach(p => {
+    const b = document.createElement("button"); b.type = "button"; b.className = "sug"; b.setAttribute("role", "option");
+    b.innerHTML = '<div class="sf"></div><div><b>' + resaltar(p.m + " " + p.n, ws) + '</b><small>' + esc((p.c ? p.c + " · " : "") + (tallasDe(p).length ? tallasDe(p).length + " tallas" : "Consultar tallas")) + '</small></div><b class="precio">' + pesos(p.p) + '</b>';
+    b.querySelector(".sf").appendChild(img(p, "", "eager"));
+    b.addEventListener("click", () => { $("#buscador").close(); abrir(p.id); });
+    cont.appendChild(b);
+  });
+  const ver = document.createElement("button"); ver.type = "button"; ver.className = "enlace-flecha"; ver.style.margin = "8px"; ver.textContent = "Ver todos los resultados";
+  ver.addEventListener("click", () => irABusqueda(q)); cont.appendChild(ver);
+}
+function irABusqueda(q) { $("#buscador").close(); $("#buscar").value = q; estado.q = q; estado.ver = 24; elegirCat("todas", true); pintar(); medir("search", { search_term: q }); $("#catalogo").scrollIntoView({ behavior: suave() }); }
+$("#abrir-buscador").addEventListener("click", () => { abrirDialogo($("#buscador")); const i = $("#q-buscador"); i.value = ""; sugerir(""); setTimeout(() => i.focus(), 30); });
+let esperaS; $("#q-buscador").addEventListener("input", e => { clearTimeout(esperaS); esperaS = setTimeout(() => sugerir(e.target.value), 120); });
+$("#q-buscador").addEventListener("keydown", e => { if (e.key === "Enter" && e.target.value.trim()) { e.preventDefault(); irABusqueda(e.target.value.trim()); } });
+["Nike blanca", "Puma niños", "Skechers", "Running", "Adidas Campus", "Vans"].forEach(t => { const b = document.createElement("button"); b.type = "button"; b.className = "pildora"; b.textContent = t; b.addEventListener("click", () => { $("#q-buscador").value = t; sugerir(t); }); $("#populares").appendChild(b); });
+
+/* ---------- Portada en banners ---------- */
+const DIAPOS = [
+  { id: "nuevos", clase: "s-negro", palabra: "NEW", ceja: "Recién llegadas", titulo: "Lo nuevo ya está en la tienda", texto: "Modelos que acaban de entrar, en tallas limitadas. Mira cuál queda en tu número.", boton: "Ver novedades", filtro: p => p.r },
+  { id: "mujer", clase: "s-fucsia", palabra: "GLAM", ceja: "Para ellas", titulo: "Estilo que se nota", texto: "Urbanas, plataformas y clásicas en blanco, rosado y negro.", boton: "Ver mujer", filtro: p => p.g === "Mujer" },
+  { id: "ninos", clase: "s-rosa", palabra: "KIDS", ceja: "Niños", titulo: "Para correr todo el día", texto: "Zapatillas cómodas y resistentes para el colegio y el juego.", boton: "Ver niños", filtro: p => p.k === "ninos" },
+  { id: "running", clase: "s-crema", palabra: "RUN", ceja: "Running", titulo: "Corre más liviano", texto: "Amortiguación y soporte para entrenar o caminar todos los días.", boton: "Ver running", filtro: p => p.k === "running" }
+];
+const banner = { i: 0, reloj: null, dur: 6500, pausa: false };
+function elegirParaBanner(filtro, usados) {
+  return P.filter(p => filtro(p) && !usados.has(p.id) && tallasDe(p).length >= 2).sort((a, b) => ((b.r || 0) - (a.r || 0)) || (tallasDe(b).length - tallasDe(a).length) || (b.s - a.s)).slice(0, 3);
+}
+function armarBanners() {
+  const cont = $("#slides"), barras = $("#barras"); cont.innerHTML = ""; barras.innerHTML = "";
+  const usados = new Set(["adidas-jp9998"]);
+  const lista = DIAPOS.map(d => { const z = elegirParaBanner(d.filtro, usados); z.forEach(p => usados.add(p.id)); return Object.assign({ zapas: z }, d); }).filter(d => d.zapas.length);
+  lista.forEach((d, k) => {
+    const s = document.createElement("div"); s.className = "slide " + d.clase; s.dataset.palabra = d.palabra;
+    s.setAttribute("role", "group"); s.setAttribute("aria-roledescription", "diapositiva"); s.setAttribute("aria-label", (k + 1) + " de " + lista.length + ": " + d.ceja);
+    const H = k === 0 ? "h1" : "h2";
+    s.innerHTML = '<div class="s-texto"><span class="ceja">' + esc(d.ceja) + '</span><' + H + ' class="titulo">' + esc(d.titulo) + '</' + H + '><p>' + esc(d.texto) + '</p><button class="boton boton-fucsia" type="button">' + esc(d.boton) + ico("flecha", 20) + '</button></div><div class="s-escena"><div class="disco"></div></div>';
+    const escena = s.querySelector(".s-escena");
+    d.zapas.forEach((p, j) => { const im = img(p, "z" + (j + 1), k === 0 ? "eager" : "lazy"); if (j === 0) { im.alt = p.m + " " + p.n; im.style.cursor = "pointer"; im.addEventListener("click", () => abrir(p.id)); } escena.appendChild(im); });
+    const p0 = d.zapas[0]; const chip = document.createElement("a"); chip.className = "chip-precio"; chip.href = "#zapatilla-" + p0.id;
+    chip.innerHTML = "<small></small><b class=\"precio\"></b>"; chip.querySelector("small").textContent = p0.m + " " + p0.n; chip.querySelector("b").textContent = pesos(p0.p);
+    chip.addEventListener("click", e => { e.preventDefault(); abrir(p0.id); }); escena.appendChild(chip);
+    s.querySelector(".boton").addEventListener("click", () => { elegirCat(d.id); $("#catalogo").scrollIntoView({ behavior: suave() }); });
+    cont.appendChild(s);
+    const b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-label", "Ver " + d.ceja); b.innerHTML = "<i></i>";
+    b.addEventListener("click", () => irBanner(k, true)); barras.appendChild(b);
+  });
+  banner.n = lista.length; irBanner(0);
+}
+function irBanner(k, manual) {
+  const slides = $$("#slides .slide"), barras = $$("#barras button"); if (!slides.length) return;
+  banner.i = (k + slides.length) % slides.length;
+  slides.forEach((s, j) => { s.classList.toggle("on", j === banner.i); s.setAttribute("aria-hidden", j === banner.i ? "false" : "true"); s.inert = j !== banner.i; });
+  barras.forEach((b, j) => { b.classList.toggle("hecho", j < banner.i); b.classList.remove("on"); b.setAttribute("aria-current", j === banner.i ? "true" : "false"); });
+  const b = barras[banner.i]; void b.offsetWidth; b.classList.add("on"); b.style.setProperty("--dur", banner.dur + "ms");
+  $("#ctrl-banner").style.color = slides[banner.i].classList.contains("s-negro") || slides[banner.i].classList.contains("s-fucsia") ? "#FFFFFF" : "#141017";
+  $("#contador-slide").textContent = String(banner.i + 1).padStart(2, "0") + " / " + String(slides.length).padStart(2, "0");
+  clearTimeout(banner.reloj); programarBanner();
+}
+function programarBanner() {
+  clearTimeout(banner.reloj);
+  banner.reloj = setTimeout(function paso() { if (banner.pausa || document.hidden) { banner.reloj = setTimeout(paso, 600); return; } irBanner(banner.i + 1); }, banner.dur);
+}
+(function () {
+  const c = $("#carril");
+  c.addEventListener("mouseenter", () => { banner.pausa = true; c.classList.add("pausa"); });
+  c.addEventListener("mouseleave", () => { banner.pausa = false; c.classList.remove("pausa"); });
+  c.addEventListener("focusin", () => { banner.pausa = true; c.classList.add("pausa"); });
+  c.addEventListener("focusout", () => { banner.pausa = false; c.classList.remove("pausa"); });
+  $("#ant-banner").addEventListener("click", () => irBanner(banner.i - 1, true));
+  $("#sig-banner").addEventListener("click", () => irBanner(banner.i + 1, true));
+  let x0 = null; c.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
+  c.addEventListener("touchend", e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) irBanner(banner.i + (dx < 0 ? 1 : -1), true); x0 = null; }, { passive: true });
+  /* Movimiento suave de las zapatillas siguiendo el mouse (solo computador) */
+  if (matchMedia("(hover:hover) and (pointer:fine)").matches) c.addEventListener("mousemove", e => {
+    if (quieto()) return; const r = c.getBoundingClientRect(); const dx = (e.clientX - r.left) / r.width - .5, dy = (e.clientY - r.top) / r.height - .5;
+    const s = $("#slides .slide.on"); if (!s) return;
+    s.querySelectorAll(".z2,.z3").forEach((im, j) => { im.style.translate = (dx * (j ? -18 : 24)) + "px " + (dy * (j ? -14 : 18)) + "px"; });
+  });
+})();
+
+/* ---------- Mosaico de categorías ---------- */
+function armarMosaico() {
+  const defs = [
+    ["mujer", "Mujer", "grande b-fucsia", p => p.g === "Mujer"],
+    ["ninos", "Niños", "ancho b-rosa", p => p.k === "ninos"],
+    ["running", "Running", "b-negro", p => p.k === "running"],
+    ["urbanas", "Urbanas", "b-crema", p => p.k === "urbanas"]
+  ];
+  const cont = $("#mosaico"); cont.innerHTML = ""; const usados = new Set($$("#slides img").map(i => i.src));
+  defs.forEach(([cat, nombre, clase, f]) => {
+    const L = P.filter(f); if (!L.length) return;
+    const top = L.filter(p => !usados.has(foto(p.id))).sort((a, b) => (tallasDe(b).length - tallasDe(a).length) || (b.s - a.s))[0] || L[0];
+    usados.add(foto(top.id));
+    const b = document.createElement("button"); b.type = "button"; b.className = "bloque " + clase; b.setAttribute("aria-label", nombre + ", " + L.length + " modelos");
+    b.innerHTML = '<div class="b-texto"><span>' + L.length + ' modelos</span><b>' + esc(nombre) + '</b></div><span class="b-ir">Comprar ' + ico("flecha", 16) + '</span>';
+    b.appendChild(img(top));
+    b.addEventListener("click", () => { elegirCat(cat); $("#catalogo").scrollIntoView({ behavior: suave() }); });
+    cont.appendChild(b);
+  });
+}
+
+/* ---------- Rieles ---------- */
+function llenarRiel(id, L, seccion) {
+  const r = $("#" + id); r.innerHTML = ""; if (!L.length) { $(seccion).hidden = true; return; }
+  L.forEach((p, i) => r.appendChild(tarjeta(p, i)));
+}
+function armarRieles() {
+  llenarRiel("riel-nuevas", P.filter(p => p.r).sort((a, b) => tallasDe(b).length - tallasDe(a).length).slice(0, 14), "#nuevas");
+  llenarRiel("riel-ultimos", P.filter(esUltimo).sort((a, b) => b.p - a.p).slice(0, 14), "#ultimos");
+}
+$$("[data-riel]").forEach(b => b.addEventListener("click", () => { const r = $("#" + b.dataset.riel); r.scrollBy({ left: Number(b.dataset.dir) * r.clientWidth * .8, behavior: suave() }); }));
+(function () {   // el riel de novedades avanza solo; se detiene mientras el cliente lo usa
+  const r = $("#riel-nuevas"); let quietoHasta = 0;
+  const parar = () => { quietoHasta = Date.now() + 8000; };
+  ["mouseenter", "focusin", "touchstart", "pointerdown", "wheel"].forEach(ev => r.addEventListener(ev, parar, { passive: true }));
+  setInterval(() => {
+    if (Date.now() < quietoHasta || document.hidden || !r.children.length) return;
+    const c = r.getBoundingClientRect(); if (c.bottom < 0 || c.top > innerHeight) return;
+    const paso = r.children[0].getBoundingClientRect().width + 18, fin = r.scrollLeft + r.clientWidth >= r.scrollWidth - 4;
+    r.scrollTo({ left: fin ? 0 : r.scrollLeft + paso, behavior: suave() });
+  }, 5000);
+})();
+
+/* ---------- Franja de marcas ---------- */
+(function () {
+  const sep = '<svg class="sep" aria-hidden="true" viewBox="0 0 64 64"><path d="M32 2l6 24 24 6-24 6-6 24-6-24-24-6 24-6z" fill="currentColor"/></svg>';
+  function llenar(cinta, conLogo, orden) {
+    for (let copia = 0; copia < 2; copia++) {
+      const g = document.createElement("div"); g.className = "cinta-grupo"; if (copia) g.setAttribute("aria-hidden", "true");
+      orden.forEach(m => { const it = document.createElement("span"); it.className = "marca-item"; if (conLogo && m.logo) { const im = document.createElement("img"); im.src = m.logo; im.alt = copia ? "" : m.nombre; im.loading = "lazy"; it.appendChild(im); } else it.textContent = m.nombre; g.appendChild(it); g.insertAdjacentHTML("beforeend", sep); });
+      cinta.appendChild(g);
+    }
+  }
+  llenar($("#cinta-marcas"), true, MARCAS);
+  llenar($("#cinta-marcas-2"), false, MARCAS.slice(4).concat(MARCAS.slice(0, 4)));
+})();
+
+/* ---------- Cabecera: sombra, altura real y WhatsApp flotante ---------- */
+(function () {
+  const cab = $("#cabecera"), wa = $("#wa-flotante"); let pend = false;
+  const revisar = () => { pend = false; const y = scrollY; cab.classList.toggle("con-sombra", y > 8); wa.classList.toggle("ver", y > 700); };
+  addEventListener("scroll", () => { if (!pend) { pend = true; requestAnimationFrame(revisar); } }, { passive: true }); revisar();
+  const alto = () => document.documentElement.style.setProperty("--cab", cab.offsetHeight + "px");
+  alto(); addEventListener("resize", alto);
+})();
+$("#marca-inicio").addEventListener("click", e => { const a = e.currentTarget; a.classList.remove("jugar"); void a.offsetWidth; a.classList.add("jugar"); });
+
+/* ---------- Mientras carga ---------- */
+(function () { const g = $("#grilla"); for (let i = 0; i < 8; i++) { const d = document.createElement("div"); d.className = "esqueleto"; d.setAttribute("aria-hidden", "true"); d.innerHTML = '<div class="e-foto"></div><div class="e-l"></div><div class="e-l corta"></div>'; g.appendChild(d); } })();
+pintarContadores();
+
+/* ---------- Inicio ---------- */
+cargarExtra().then(() => { if (P.length && Object.keys(EXTRA).length) { pintar(); armarRieles(); armarMosaico(); } });
 cargar().then(d => {
-  P = d.filter(p => p && p.id && p.p > 0);
+  P = d.filter(p => p && p.id && p.p > 0); porId = new Map(P.map(p => [p.id, p]));
+  BOLSA = BOLSA.filter(x => porId.get(x.id) && porId.get(x.id).t[x.t] > 0); FAV = new Set([...FAV].filter(id => porId.has(id))); pintarContadores();
   $("#grilla").removeAttribute("aria-busy");
-  botonesTalla();
-  armarPortadaExtra();
-  iniciarVitrina();
-  const t = leer("talla");
-  if (t) { const b = [...document.querySelectorAll("#tallas .talla")].find(x => x.dataset.t === t); if (b) b.click(); else pintar(); } else pintar();
+  botonesTalla(); armarBanners(); armarMosaico(); armarRieles();
+  const t = leer("talla", ""); if (t && $$("#tallas .talla").some(x => x.dataset.t === t)) marcarTalla(t); else pintar();
   abrirDesdeHash();
 }).catch(() => { $("#grilla").innerHTML = '<div class="vacio" style="grid-column:1/-1"><b>No se pudo cargar el catálogo.</b><span>Revisa tu conexión y vuelve a abrir la página.</span></div>'; });
+
 </script>
 </body>
 </html>
